@@ -1,0 +1,23 @@
+{
+  "name": "mall-guide-backend",
+  "version": "1.0.0",
+  "description": "While shopping online, the user avails the benefit of filtering products, discounts offered,\r detailed information of the product, but on the other hand, he lacks the feature of\r availing the product instantly, touch and feel of the merchandise, a close examination of\r the product and live shopping experience.\r The proposed system is trying to overcome the drawbacks of the online system and provides\r handful features on the palm facilitating the mall visitors to enjoy the shopping experience.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maulikpipaliya/mall-guide-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maulikpipaliya/mall-guide-backend/issues"
+  },
+  "homepage": "https://github.com/maulikpipaliya/mall-guide-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
