@@ -1,11 +1,21 @@
-const express = require('express')
-const app = express()
-const port = 3000
+var express = require('express');
+var bodyParser = require('body-parser');
+// var multer = require('multer');
+// var upload = multer();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+var app = express();
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+// app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(upload.array());
+
+var movies = require('./router');
+
+//Use the Router on the sub route /movies
+app.use('/movies', movies);
+
+app.listen(3000);
+
+
+
