@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var stores = require('./routes/stores');
 
+
 //Use the Router on the sub route /movies
 app.use('/stores', stores);
 
