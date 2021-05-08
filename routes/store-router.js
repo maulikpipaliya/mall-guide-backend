@@ -63,7 +63,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 //Get particular stores
-router.put("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const response = await storeModel.findById(id, req.body);

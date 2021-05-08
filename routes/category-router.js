@@ -63,7 +63,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 //Get particular category
-router.put("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const response = await categoryModel.findById(id, req.body);

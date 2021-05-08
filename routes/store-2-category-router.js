@@ -2,18 +2,18 @@ var express = require("express");
 var router = express.Router();
 
 //data from database
-var offerModel = require("../models/offer-model");
+var store2CategoryModel = require("../models/store-2-category-model");
 
-//get all offers
+//get all store to categories
 router.get("/", async function (req, res) {
-  console.log("[INFO] : Getting all offers");
-  const all_stores = await offerModel.find({ is_deleted: false });
+  console.log("[INFO] : Getting all store to categories");
+  const all_stores = await store2CategoryModel.find({ is_deleted: false });
   res.json(all_stores);
 });
 
-//create a new offer
+//create a new store-2-category
 router.post("/", async function (req, res) {
-  const newStore = new offerModel(req.body);
+  const newStore = new store2CategoryModel(req.body);
   try {
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
@@ -26,13 +26,13 @@ router.post("/", async function (req, res) {
   }
 });
 
-//update a offer
+//update a store-2-category
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
     request_body.updated_at = Date.now();
-    const response = await offerModel.findByIdAndUpdate(id, req.body);
+    const response = await store2CategoryModel.findByIdAndUpdate(id, req.body);
     if (!response) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response._doc, ...req.body };
     console.log("[INFO] : Success. Updated Data");
@@ -44,14 +44,14 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//delete a offer
+//delete a store-2-category
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
     request_body.updated_at = Date.now();
     request_body.is_deleted = true;
-    const deleted = await offerModel.findByIdAndDelete(id, req.body);
+    const deleted = await store2CategoryModel.findByIdAndDelete(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
     res.status(200).json(deleted);
@@ -62,14 +62,18 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//Get particular offer
+//Get particular store-2-category
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const response = await offerModel.findById(id, req.body);
-    if (!response) throw new Error("[ERROR] : Failed to get a offer " + id);
-    const offerDetails = { ...response._doc, ...req.body };
-    res.status(200).json(offerDetails);
+    const response = await store2CategoryModel.findById(
+      { store_id: id },
+      req.body
+    );
+    if (!response)
+      throw new Error("[ERROR] : Failed to get a store-2-category " + id);
+    const categoryDetails = { ...response._doc, ...req.body };
+    res.status(200).json(categoryDetails);
   } catch (error) {
     res.status(500).json({
       message: error.message,

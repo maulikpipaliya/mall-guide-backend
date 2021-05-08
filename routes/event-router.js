@@ -63,7 +63,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 //Get particular events
-router.put("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const response = await eventModel.findById(id, req.body);
