@@ -1,0 +1,184 @@
+[{
+    "_id": {
+      "$oid": "60958620d4ed4c6b479ebe5a"
+    },
+    "store_id": {
+      "$oid": "609585a19163a8fdc563f33d"
+    },
+    "store_name": "Tommy Hilfiger",
+    "email": "tommyhilfiger@gmail.com",
+    "social_handle": "instagram.com/tommyhilfiger",
+    "location_id": 10,
+    "is_deleted": ""
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137f3"
+    },
+    "store_name": "lastcall",
+    "email": "lastcall@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137f4"
+    },
+    "store_name": "H&M ",
+    "email": "H&M @gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137f5"
+    },
+    "store_name": "Andersen Bakery",
+    "email": "Andersen Bakery@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137f6"
+    },
+    "store_name": "Tommy Hilfiger",
+    "email": "Tommy Hilfiger@gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137f7"
+    },
+    "store_name": "LOve Culture",
+    "email": "LOve Culture@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137f8"
+    },
+    "store_name": "Red Robin Burger",
+    "email": "Red Robin Burger@gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137f9"
+    },
+    "store_name": "BCBG MAx Arzia",
+    "email": "BCBG MAx Arzia@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137fa"
+    },
+    "store_name": "Chipotle",
+    "email": "Chipotle@gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137fb"
+    },
+    "store_name": "Joe's Jeans",
+    "email": "Joe's Jeans@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137fc"
+    },
+    "store_name": "Bebe",
+    "email": "Bebe@gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137fd"
+    },
+    "store_name": "Armani Exchange",
+    "email": "Armani Exchange@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137fe"
+    },
+    "store_name": "Coach Men",
+    "email": "Coach Men@gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a137ff"
+    },
+    "store_name": "Coach Factory Store",
+    "email": "Coach Factory Store@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a13800"
+    },
+    "store_name": "Olive Garden",
+    "email": "Olive Garden@gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a13801"
+    },
+    "store_name": "Off 5th",
+    "email": "Off 5th@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a13802"
+    },
+    "store_name": "Marshals",
+    "email": "Marshals@gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a13803"
+    },
+    "store_name": "Nine-west",
+    "email": "Nine-west@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a13804"
+    },
+    "store_name": "Great Mayflower Mall",
+    "email": "Great Mayflower Mall@gmail.com",
+    "social_handle": "fbhandle",
+    "location_id": 23,
+    "is_deleted": 0
+  },{
+    "_id": {
+      "$oid": "609597b6d4ed4c6b47a13805"
+    },
+    "store_name": "Victoria's secret",
+    "email": "Victoria's secret@gmail.com",
+    "social_handle": "ighandle",
+    "location_id": 23,
+    "is_deleted": 0
+  }]

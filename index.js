@@ -10,10 +10,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(upload.array());
 
-var movies = require('./router');
+var stores = require('./routes/stores');
 
 //Use the Router on the sub route /movies
-app.use('/movies', movies);
+app.use('/stores', stores);
 
 app.listen(3000);
 
