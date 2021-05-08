@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "kiran",
+    "email": "kiranvish@gmail.com",
+    "contact": 9714955007,
+    "address": "Paldi, Ahemedabad"
+  },
+  {
+    "id": 2,
+    "name": "Sagar",
+    "email": "sagar@gmail.com",
+    "contact": 9876564312,
+    "address": "Manek chowk, Ahemedabad"
+  },
+  {
+    "id": 3,
+    "name": "Kishan",
+    "email": "kishanyadav@gmail.com",
+    "contact": 7698706723,
+    "address": "Yogi chowk, Surat"
+  },
+  {
+    "id": 4,
+    "name": "Sachin",
+    "email": "sachin@gmail.com",
+    "contact": 7686899078,
+    "address": "Sarthana, Rajkot"
+  }
+]

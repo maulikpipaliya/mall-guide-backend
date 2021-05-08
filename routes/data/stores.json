@@ -1,16 +1,15 @@
-[{
+[
+  {
     "_id": {
       "$oid": "60958620d4ed4c6b479ebe5a"
-    },
-    "store_id": {
-      "$oid": "609585a19163a8fdc563f33d"
     },
     "store_name": "Tommy Hilfiger",
     "email": "tommyhilfiger@gmail.com",
     "social_handle": "instagram.com/tommyhilfiger",
     "location_id": 10,
     "is_deleted": ""
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137f3"
     },
@@ -19,7 +18,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137f4"
     },
@@ -28,7 +28,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137f5"
     },
@@ -37,7 +38,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137f6"
     },
@@ -46,7 +48,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137f7"
     },
@@ -55,7 +58,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137f8"
     },
@@ -64,7 +68,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137f9"
     },
@@ -73,7 +78,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137fa"
     },
@@ -82,7 +88,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137fb"
     },
@@ -91,7 +98,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137fc"
     },
@@ -100,7 +108,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137fd"
     },
@@ -109,7 +118,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137fe"
     },
@@ -118,7 +128,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a137ff"
     },
@@ -127,7 +138,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a13800"
     },
@@ -136,7 +148,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a13801"
     },
@@ -145,7 +158,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a13802"
     },
@@ -154,7 +168,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a13803"
     },
@@ -163,7 +178,8 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a13804"
     },
@@ -172,7 +188,8 @@
     "social_handle": "fbhandle",
     "location_id": 23,
     "is_deleted": 0
-  },{
+  },
+  {
     "_id": {
       "$oid": "609597b6d4ed4c6b47a13805"
     },
@@ -181,4 +198,5 @@
     "social_handle": "ighandle",
     "location_id": 23,
     "is_deleted": 0
-  }]
+  }
+]

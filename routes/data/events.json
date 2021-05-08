@@ -1,18 +1,17 @@
-{
+[
+  {
     "_id": {
-        "$oid": "6095896dd4ed4c6b479f316e"
-    },
-    "event_id": {
-        "$oid": "609588f39163a8fdc563f348"
+      "$oid": "6095896dd4ed4c6b479f316e"
     },
     "event_name": "sursangit",
     "event_desc": "you need to sing a song ",
     "organizer": "test123",
     "event_location": "front of the parking",
     "start_date": {
-        "$date": "2021-05-06T18:30:00.000Z"
+      "$date": "2021-05-06T18:30:00.000Z"
     },
     "end_date": {
-        "$date": "2021-05-07T18:30:00.000Z"
+      "$date": "2021-05-07T18:30:00.000Z"
     }
-}
+  }
+]
