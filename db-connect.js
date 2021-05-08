@@ -10,3 +10,4 @@ mongoose
     })
     .then(() => console.log('[INFO] : Database Connection SUCCESS. MongoDB database Connected'))
     .catch((err) => console.log(err))
+

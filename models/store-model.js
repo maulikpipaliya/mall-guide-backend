@@ -2,7 +2,8 @@ const { Schema, model } = require('mongoose')
 
 const storeSchema = new Schema({
     store_name: {
-        type: String
+        type: String,
+        required: true
     },
     email: {
         type: String
@@ -11,17 +12,20 @@ const storeSchema = new Schema({
         type: String
     },
     location_id: {
-        type: Number
+        type: Number,
+        required: true
     },
     is_deleted: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     created_at: {
         type: Date,
-        default: Date.now  
+        default: Date.now()
     }
+
 });
 
-const storeModel = model("store",storeSchema);
+const storeModel = model("stores",storeSchema);
 
 module.exports = storeModel;
