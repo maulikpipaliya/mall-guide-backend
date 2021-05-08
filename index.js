@@ -25,10 +25,10 @@ var services = require("./routes/service-router");
 app.use("/stores", store_router);
 app.use("/events", event_router);
 app.use("/store_owner", store_owner);
-app.use("/feedback", feedback);
-app.use("/location", location);
+app.use("/feedbacks", feedback);
+app.use("/locations", location);
 app.use("/mall_owner", mall_owner);
-app.use("/offer", offer);
+app.use("/offers", offer);
 app.use("/services", services);
 
 app.listen(CONFIG.PORT, () =>

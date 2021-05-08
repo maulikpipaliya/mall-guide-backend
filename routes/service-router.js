@@ -7,7 +7,7 @@ var serviceModel = require("../models/service-model");
 //get all services
 router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all services");
-  const all_services = await serviceModel.find({is_deleted: false});
+  const all_services = await serviceModel.find({ is_deleted: false });
   res.json(all_services);
 });
 
@@ -54,7 +54,8 @@ router.delete("/:id", async (req, res) => {
 
   try {
     var request_body = {};
-      // console.log(request_body);
+    // console.log(request_body);
+    request_body.updated_at = Date.now();
     request_body.is_deleted = true;
     const deleted = await serviceModel.findByIdAndUpdate(id, request_body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete service");

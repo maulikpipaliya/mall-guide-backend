@@ -2,23 +2,85 @@ var express = require("express");
 var router = express.Router();
 
 //data from database
-var mall_owners = require("./data/mall-owners.json");
+var mallOwnerModel = require("../models/mall-owner-model");
 
-router.get("/", function (req, res) {
-  res.json(mall_owners);
+//get all mall-owners
+router.get("/", async function (req, res) {
+  console.log("[INFO] : Getting all mall-owners");
+  const all_services = await mallOwnerModel.find({ is_deleted: false });
+  res.json(all_services);
 });
 
-router.get("/:id([0-9]{3,})", function (req, res) {
-  var currMallOwner = mall_owners.filter(function (mall_owner) {
-    if (mall_owner.id == req.params.id) {
-      return true;
-    }
-  });
-  if (currMallOwner.length == 1) {
-    res.json(currMallOwner[0]);
-  } else {
-    res.status(404); //Set status to 404 as Mall Owner was not found
-    res.json({ message: "Not Found" });
+//create a new mall-owner
+router.post("/", async function (req, res) {
+  const new_service = new mallOwnerModel(req.body);
+  try {
+    console.log("[INFO] : Adding new mall-owner");
+    const inserted = await new_service.save();
+    if (!inserted) throw new Error("[ERROR] : Failed to insert mall-owner");
+    else console.log("[INFO] : Success. Created mall-owner");
+    res.status(200).json(inserted);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//update a mall-owner
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    var request_body = req.body;
+    console.log(request_body);
+    request_body.updated_at = Date.now();
+    const response = await mallOwnerModel.findByIdAndUpdate(id, request_body);
+    // if (!response) throw new Error("[ERROR] : --Failed to update");
+    const updated = { ...response._doc, ...req.body };
+    console.log("[INFO] : Success. Updated mall-owner");
+    res.status(200).json(updated);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+    consoloe.log(error);
+  }
+});
+
+//delete a mall-owner
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    var request_body = {};
+    // console.log(request_body);
+    request_body.updated_at = Date.now();
+    request_body.is_deleted = true;
+    const deleted = await mallOwnerModel.findByIdAndUpdate(id, request_body);
+    if (!deleted) throw new Error("[ERROR] : Failed to delete mall-owner");
+
+    res.status(200).json(deleted);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//Get particular mall-owner
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await mallOwnerModel.findById(id, req.body);
+    if (!response)
+      throw new Error("[ERROR] : Failed to get a mall-owner " + id);
+    const service_details = { ...response._doc, ...req.body };
+    res.status(200).json(service_details);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
   }
 });
 

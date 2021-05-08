@@ -1,17 +1,16 @@
 const { Schema, model } = require("mongoose");
 
-const serviceSchema = new Schema({
-  service_name: {
+const mallOwnerSchema = new Schema({
+  name: {
     type: String,
     required: true,
   },
-  location_id: {
+  email: {
+    type: String,
+  },
+  contact: {
     type: Number,
     required: true,
-  },
-  is_deleted: {
-    type: Boolean,
-    default: false,
   },
   created_at: {
     type: Date,
@@ -23,6 +22,6 @@ const serviceSchema = new Schema({
   },
 });
 
-const servicesModel = model("services", serviceSchema);
+const mallOwnerModel = model("store-owners", mallOwnerSchema);
 
-module.exports = servicesModel;
+module.exports = mallOwnerModel;

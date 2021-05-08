@@ -7,7 +7,7 @@ var eventModel = require("../models/event-model");
 //get all events
 router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all events");
-  const all_events = await eventModel.find();
+  const all_events = await eventModel.find({ is_deleted: false });
   res.json(all_events);
 });
 
@@ -31,6 +31,7 @@ router.put("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
+    request_body.updated_at = Date.now();
     const response = await eventModel.findByIdAndUpdate(id, req.body);
     if (!response) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response._doc, ...req.body };
@@ -48,6 +49,8 @@ router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
+    request_body.updated_at = Date.now();
+    request_body.is_deleted = true;
     const deleted = await eventModel.findByIdAndDelete(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
