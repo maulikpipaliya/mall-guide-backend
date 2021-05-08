@@ -2,23 +2,23 @@ var express = require('express');
 var router = express.Router();
 
 
-//data
-var stores = require('./data/stores.json');
+//data from database
+var events = require('./data/events.json');
 
 
 router.get('/', function (req, res) {
-    res.json(stores);
+    res.json(events);
 });
 
 
 router.get('/:id([0-9]{3,})', function (req, res) {
-    var currStore= stores.filter(function (store) {
+    var currEvent= events.filter(function (store) {
         if (store.id == req.params.id) {
             return true;
         }
     });
-    if (currStore.length == 1) {
-        res.json(currStore[0])
+    if (currEvent.length == 1) {
+        res.json(currEvent[0])
     } else {
         res.status(404);//Set status to 404 as movie was not found
         res.json({ message: "Not Found" });
