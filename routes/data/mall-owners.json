@@ -1,0 +1,8 @@
+[
+  {
+    "_id": { "$oid": "6095823f9163a8fdc563f339" },
+    "name": "test",
+    "contact": "999999999",
+    "email": "mallguide@gmail.com"
+  }
+]
