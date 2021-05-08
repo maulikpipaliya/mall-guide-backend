@@ -2,18 +2,18 @@ var express = require("express");
 var router = express.Router();
 
 //data from database
-var offerModel = require("../models/offer-model");
+var categoryModel = require("../models/category-model");
 
-//get all offers
+//get all categories
 router.get("/", async function (req, res) {
-  console.log("[INFO] : Getting all offers");
-  const all_stores = await offerModel.find({ is_deleted: false });
+  console.log("[INFO] : Getting all categories");
+  const all_stores = await categoryModel.find({ is_deleted: false });
   res.json(all_stores);
 });
 
-//create a new offer
+//create a new category
 router.post("/", async function (req, res) {
-  const newStore = new offerModel(req.body);
+  const newStore = new categoryModel(req.body);
   try {
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
@@ -26,13 +26,13 @@ router.post("/", async function (req, res) {
   }
 });
 
-//update a offer
+//update a category
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
     request_body.updated_at = Date.now();
-    const response = await offerModel.findByIdAndUpdate(id, req.body);
+    const response = await categoryModel.findByIdAndUpdate(id, req.body);
     if (!response) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response._doc, ...req.body };
     console.log("[INFO] : Success. Updated Data");
@@ -44,14 +44,14 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//delete a offer
+//delete a category
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
     request_body.updated_at = Date.now();
     request_body.is_deleted = true;
-    const deleted = await offerModel.findByIdAndDelete(id, req.body);
+    const deleted = await categoryModel.findByIdAndDelete(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
     res.status(200).json(deleted);
@@ -62,14 +62,14 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//Get particular offer
+//Get particular category
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const response = await offerModel.findById(id, req.body);
-    if (!response) throw new Error("[ERROR] : Failed to get a offer " + id);
-    const offerDetails = { ...response._doc, ...req.body };
-    res.status(200).json(offerDetails);
+    const response = await categoryModel.findById(id, req.body);
+    if (!response) throw new Error("[ERROR] : Failed to get a category " + id);
+    const categoryDetails = { ...response._doc, ...req.body };
+    res.status(200).json(categoryDetails);
   } catch (error) {
     res.status(500).json({
       message: error.message,

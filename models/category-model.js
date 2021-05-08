@@ -1,14 +1,11 @@
 const { Schema, model } = require("mongoose");
 
-const mallOwnerSchema = new Schema({
+const categorySchema = new Schema({
   name: {
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-  },
-  contact: {
+  parent_category_id: {
     type: Number,
     required: true,
   },
@@ -26,6 +23,6 @@ const mallOwnerSchema = new Schema({
   },
 });
 
-const mallOwnerModel = model("mall-owners", mallOwnerSchema);
+const categoryModel = model("categories", categorySchema);
 
-module.exports = mallOwnerModel;
+module.exports = categoryModel;
