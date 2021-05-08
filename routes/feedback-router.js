@@ -2,23 +2,84 @@ var express = require("express");
 var router = express.Router();
 
 //data from database
-var feedbacks = require("./data/feedbacks.json");
+var feedbackModel = require("../models/feedback-model");
 
-router.get("/", function (req, res) {
-  res.json(feedbacks);
+//get all feedbacks
+router.get("/", async function (req, res) {
+  console.log("[INFO] : Getting all feedbacks");
+  const all_services = await feedbackModel.find({ is_deleted: false });
+  res.json(all_services);
 });
 
-router.get("/:id([0-9]{3,})", function (req, res) {
-  var currFeedback = feedbacks.filter(function (feedback) {
-    if (feedback.id == req.params.id) {
-      return true;
-    }
-  });
-  if (currFeedback.length == 1) {
-    res.json(currFeedback[0]);
-  } else {
-    res.status(404); //Set status to 404 as Feedback was not found
-    res.json({ message: "Not Found" });
+//create a new feedback
+router.post("/", async function (req, res) {
+  const new_service = new feedbackModel(req.body);
+  try {
+    console.log("[INFO] : Adding new feedback");
+    const inserted = await new_service.save();
+    if (!inserted) throw new Error("[ERROR] : Failed to insert feedback");
+    else console.log("[INFO] : Success. Created feedback");
+    res.status(200).json(inserted);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//update a feedback
+// router.put("/:id", async (req, res) => {
+//   const { id } = req.params;
+
+//   try {
+//     var request_body = req.body;
+//     console.log(request_body);
+//     request_body.updated_at = Date.now();
+//     const response = await feedbackModel.findByIdAndUpdate(id, request_body);
+//     // if (!response) throw new Error("[ERROR] : --Failed to update");
+//     const updated = { ...response._doc, ...req.body };
+//     console.log("[INFO] : Success. Updated feedback");
+//     res.status(200).json(updated);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//     consoloe.log(error);
+//   }
+// });
+
+//delete a feedback
+// router.delete("/:id", async (req, res) => {
+//   const { id } = req.params;
+
+//   try {
+//     var request_body = {};
+//     // console.log(request_body);
+//     request_body.updated_at = Date.now();
+//     request_body.is_deleted = true;
+//     const deleted = await feedbackModel.findByIdAndUpdate(id, request_body);
+//     if (!deleted) throw new Error("[ERROR] : Failed to delete feedback");
+
+//     res.status(200).json(deleted);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// });
+
+//Get particular feedback
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await feedbackModel.findById(id, req.body);
+    if (!response) throw new Error("[ERROR] : Failed to get a feedback " + id);
+    const service_details = { ...response._doc, ...req.body };
+    res.status(200).json(service_details);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
   }
 });
 

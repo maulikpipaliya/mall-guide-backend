@@ -1,16 +1,16 @@
 const { Schema, model } = require("mongoose");
 
-const mallOwnerSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-  },
-  contact: {
+const locationSchema = new Schema({
+  floor_number: {
     type: Number,
     required: true,
+  },
+  block_number: {
+    type: String,
+    required: true,
+  },
+  location_desc: {
+    type: String,
   },
   created_at: {
     type: Date,
@@ -22,6 +22,6 @@ const mallOwnerSchema = new Schema({
   },
 });
 
-const mallOwnerModel = model("mall-owners", mallOwnerSchema);
+const locationModel = model("locations", locationSchema);
 
-module.exports = mallOwnerModel;
+module.exports = locationModel;

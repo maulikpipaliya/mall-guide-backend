@@ -2,23 +2,84 @@ var express = require("express");
 var router = express.Router();
 
 //data from database
-var locations = require("./data/locations.json");
+var locationModel = require("../models/location-model");
 
-router.get("/", function (req, res) {
-  res.json(locations);
+//get all locations
+router.get("/", async function (req, res) {
+  console.log("[INFO] : Getting all locations");
+  const all_services = await locationModel.find({ is_deleted: false });
+  res.json(all_services);
 });
 
-router.get("/:id([0-9]{3,})", function (req, res) {
-  var currLocation = locations.filter(function (location) {
-    if (location.id == req.params.id) {
-      return true;
-    }
-  });
-  if (currLocation.length == 1) {
-    res.json(currLocation[0]);
-  } else {
-    res.status(404); //Set status to 404 as movie was not found
-    res.json({ message: "Not Found" });
+//create a new location
+router.post("/", async function (req, res) {
+  const new_service = new locationModel(req.body);
+  try {
+    console.log("[INFO] : Adding new location");
+    const inserted = await new_service.save();
+    if (!inserted) throw new Error("[ERROR] : Failed to insert location");
+    else console.log("[INFO] : Success. Created location");
+    res.status(200).json(inserted);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//update a location
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    var request_body = req.body;
+    console.log(request_body);
+    request_body.updated_at = Date.now();
+    const response = await locationModel.findByIdAndUpdate(id, request_body);
+    // if (!response) throw new Error("[ERROR] : --Failed to update");
+    const updated = { ...response._doc, ...req.body };
+    console.log("[INFO] : Success. Updated location");
+    res.status(200).json(updated);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+    consoloe.log(error);
+  }
+});
+
+//delete a location
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    var request_body = {};
+    // console.log(request_body);
+    request_body.updated_at = Date.now();
+    request_body.is_deleted = true;
+    const deleted = await locationModel.findByIdAndUpdate(id, request_body);
+    if (!deleted) throw new Error("[ERROR] : Failed to delete location");
+
+    res.status(200).json(deleted);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//Get particular location
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await locationModel.findById(id, req.body);
+    if (!response) throw new Error("[ERROR] : Failed to get a location " + id);
+    const service_details = { ...response._doc, ...req.body };
+    res.status(200).json(service_details);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
   }
 });
 
