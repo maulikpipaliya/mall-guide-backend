@@ -1,0 +1,10 @@
+[
+  {
+    "_id": { "$oid": "609589e3d4ed4c6b479f41a2" },
+    "offer_name": "popcorn 1+1 free",
+    "offer_by": "test123",
+    "duration": { "$date": { "$numberLong": "1620325800000" } },
+    "createdAt": { "$date": { "$numberLong": "1620325800000" } },
+    "updatedAt": { "$date": { "$numberLong": "1620498600000" } }
+  }
+]
