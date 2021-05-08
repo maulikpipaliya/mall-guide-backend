@@ -1,25 +1,80 @@
-var express = require("express");
+var express = require('express');
 var router = express.Router();
 
 //data from database
-var offers = require("./data/offers.json");
+var offerModel = require('../models/offer-model');
 
-router.get("/", function (req, res) {
-  res.json(offers);
+//get all stores
+router.get('/', async function (req, res) {
+    console.log("[INFO] : Getting all offers");
+    const all_stores = await offerModel.find();
+    res.json(all_stores);
 });
 
-router.get("/:id([0-9]{3,})", function (req, res) {
-  var currOffer = offers.filter(function (offer) {
-    if (offer.id == req.params.id) {
-      return true;
+
+//create a new offer
+router.post('/', async function (req, res) {
+    const newStore = new offerModel(req.body);
+    try {
+        const inserted = await newStore.save();
+        if (!inserted) throw new Error("[ERROR] : Failed to insert");
+        else console.log("[INFO] : Success. Inserted Data");
+        res.status(200).json(inserted);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
     }
-  });
-  if (currOffer.length == 1) {
-    res.json(currOffer[0]);
-  } else {
-    res.status(404); //Set status to 404 as Offer was not found
-    res.json({ message: "Not Found" });
-  }
 });
+
+//update a offer
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        
+        const response = await offerModel.findByIdAndUpdate(id, req.body);
+        if (!response) throw new Error("[ERROR] : Failed to update");
+        const updated = { ...response._doc, ...req.body };
+        console.log("[INFO] : Success. Updated Data");
+        res.status(200).json(updated);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
+    }
+});
+
+//delete a offer
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const deleted = await offerModel.findByIdAndDelete(id, req.body);
+        if (!deleted) throw new Error("[ERROR] : Failed to delete");
+
+        res.status(200).json(deleted);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
+    }
+});
+
+//Get particular stores
+router.put("/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const response = await offerModel.findById(id, req.body);
+        if (!response) throw new Error("[ERROR] : Failed to get a offer " + id);
+        const offerDetails = { ...response._doc, ...req.body };
+        res.status(200).json(offerDetails);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+});
+
 
 module.exports = router;
