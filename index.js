@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var store_router = require('./routes/store-router');
 var event_router = require('./routes/event-router')
 
+
 //Use the Router on the sub route /movies
 app.use('/stores', store_router);
 app.use('/events', event_router);
