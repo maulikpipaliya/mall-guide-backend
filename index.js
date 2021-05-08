@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-const CONFIG = require('./config')
-const db = require('./db-connect')
+const CONFIG = require("./config");
+const db = require("./db-connect");
 
 var app = express();
 
@@ -31,5 +31,6 @@ app.use("/mall_owner", mall_owner);
 app.use("/offer", offer);
 app.use("/service", service);
 
-
-app.listen(CONFIG.PORT, () => console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`))
+app.listen(CONFIG.PORT, () =>
+  console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`)
+);
