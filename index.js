@@ -11,12 +11,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(upload.array());
 
 var store_router = require('./routes/store-router');
-var event_router = require('./routes/event-router')
-
+var event_router = require('./routes/event-router');
+var test_mongoose = require('./testMongoose');
 
 //Use the Router on the sub route /movies
 app.use('/stores', store_router);
 app.use('/events', event_router);
+app.use('/insertdata',testMongoose);
 
 
 app.listen(3000);
