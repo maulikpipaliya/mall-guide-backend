@@ -1,0 +1,8 @@
+[
+  {
+    "_id": { "$oid": "60958a3ad4ed4c6b479f4c43" },
+    "floor_number": { "$numberInt": "2" },
+    "block_number": { "$numberInt": "12" },
+    "location_desc": "near left toilet"
+  }
+]

@@ -2,22 +2,22 @@ var express = require("express");
 var router = express.Router();
 
 //data from database
-var events = require("./data/events.json");
+var offers = require("./data/offers.json");
 
 router.get("/", function (req, res) {
-  res.json(events);
+  res.json(offers);
 });
 
 router.get("/:id([0-9]{3,})", function (req, res) {
-  var currEvent = events.filter(function (event) {
-    if (event.id == req.params.id) {
+  var currOffer = offers.filter(function (offer) {
+    if (offer.id == req.params.id) {
       return true;
     }
   });
-  if (currEvent.length == 1) {
-    res.json(currEvent[0]);
+  if (currOffer.length == 1) {
+    res.json(currOffer[0]);
   } else {
-    res.status(404); //Set status to 404 as movie was not found
+    res.status(404); //Set status to 404 as Offer was not found
     res.json({ message: "Not Found" });
   }
 });
