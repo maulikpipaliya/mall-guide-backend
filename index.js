@@ -1,14 +1,17 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-// var multer = require('multer');
-// var upload = multer();
+const CONFIG = require('./config')
+const db = require('./db-connect')
 
 var app = express();
 
 // app.use(cookieParser());
 app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(upload.array());
+
+//Routers
 var store_router = require("./routes/store-router");
 var event_router = require("./routes/event-router");
 var store_owner = require("./routes/store-owner-router");
@@ -29,4 +32,4 @@ app.use("/offer", offer);
 app.use("/service", service);
 
 
-app.listen(3000);
+app.listen(CONFIG.PORT, () => console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`))
