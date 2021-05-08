@@ -51,7 +51,7 @@ router.delete("/:id", async (req, res) => {
   try {
     request_body.updated_at = Date.now();
     request_body.is_deleted = true;
-    const deleted = await offerModel.findByIdAndDelete(id, req.body);
+    const deleted = await offerModel.findByIdAndUpdate(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
     res.status(200).json(deleted);

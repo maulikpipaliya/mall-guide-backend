@@ -15,6 +15,10 @@ const storeSchema = new Schema({
     type: Number,
     required: true,
   },
+  route_name: {
+    type: String,
+    required: true,
+  },
   is_deleted: {
     type: Boolean,
     default: false,
