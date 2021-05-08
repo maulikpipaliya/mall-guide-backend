@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+
+//data
 var stores = require('./data/stores.json');
 
 
