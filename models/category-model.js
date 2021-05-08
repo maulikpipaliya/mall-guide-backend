@@ -6,8 +6,8 @@ const categorySchema = new Schema({
     required: true,
   },
   parent_category_id: {
-    type: Number,
-    required: true,
+    type: String,
+    default: null,
   },
   is_deleted: {
     type: Boolean,

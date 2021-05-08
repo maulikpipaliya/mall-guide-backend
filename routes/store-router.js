@@ -3,6 +3,8 @@ var router = express.Router();
 
 //data from database
 var storeModel = require("../models/store-model");
+var categoryModel = require("../models/category-model");
+var store2CategoryModel = require("../models/store-2-category-model");
 
 //get all stores
 router.get("/", async function (req, res) {
@@ -47,13 +49,15 @@ router.put("/:name", async (req, res) => {
 });
 
 //delete a store
-router.delete("/:id", async (req, res) => {
-  const { id } = req.params;
+router.delete("/:name", async (req, res) => {
+  const { name } = req.params;
 
   try {
-    res.body.updated_at = Date.now();
-    res.body.is_deleted = true;
-    const deleted = await storeModel.findByIdAndUpdate(id, req.body);
+    const response = await storeModel.findOne({ route_name: name });
+    response.updated_at = Date.now();
+    response.is_deleted = true;
+    // console.log(response);
+    const deleted = await storeModel.findByIdAndUpdate(response.id, response);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
     res.status(200).json(deleted);
@@ -69,10 +73,38 @@ router.get("/:name", async (req, res) => {
   const { name } = req.params;
   try {
     console.log(name);
-    const response = await storeModel.find({ route_name: name });
+    const response = await storeModel.findOne({ route_name: name });
     if (!response) throw new Error("[ERROR] : Failed to get a store " + name);
     const storeDetails = { ...response._doc, ...req.body };
     res.status(200).json(storeDetails);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//Get categories of particular stores
+router.get("/:name/categories", async (req, res) => {
+  const { name } = req.params;
+  try {
+    // console.log(name);
+    const response = await storeModel.findOne({ route_name: name });
+    if (!response) throw new Error("[ERROR] : Failed to get a store " + name);
+    const categoriesId = await store2CategoryModel.find({
+      store_id: response._id,
+    });
+    let store2CategoriesDetails = [];
+    for (let i = 0; i < categoriesId.length; i++) {
+      const categoryId = categoriesId[i].category_id;
+      const categoriesId1 = await categoryModel.findOne({
+        _id: categoryId,
+      });
+      console.log(categoryId);
+      console.log(categoriesId1);
+      store2CategoriesDetails.push(categoriesId1);
+    }
+    res.status(200).json(store2CategoriesDetails);
   } catch (error) {
     res.status(500).json({
       message: error.message,

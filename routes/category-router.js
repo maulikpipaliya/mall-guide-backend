@@ -3,6 +3,8 @@ var router = express.Router();
 
 //data from database
 var categoryModel = require("../models/category-model");
+var store2CategoryModel = require("../models/store-2-category-model");
+var storeModel = require("../models/store-model");
 
 //get all categories
 router.get("/", async function (req, res) {
@@ -70,6 +72,32 @@ router.get("/:id", async (req, res) => {
     if (!response) throw new Error("[ERROR] : Failed to get a category " + id);
     const categoryDetails = { ...response._doc, ...req.body };
     res.status(200).json(categoryDetails);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+//Get stores of a particular category
+router.get("/:id/stores", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await categoryModel.findById(id, req.body);
+    if (!response) throw new Error("[ERROR] : Failed to get a category " + id);
+    const categoryDetails = { ...response._doc, ...req.body };
+    console.log(response._id);
+    const storeIds = await store2CategoryModel.find({
+      category_id: id,
+    });
+    let store2CategoriesDetails = [];
+    for (let i = 0; i < storeIds.length; i++) {
+      const storeId = storeIds[i].store_id;
+      const storeId1 = await storeModel.findOne({
+        _id: storeId,
+      });
+      store2CategoriesDetails.push(storeId1);
+    }
+    res.status(200).json(store2CategoriesDetails);
   } catch (error) {
     res.status(500).json({
       message: error.message,
