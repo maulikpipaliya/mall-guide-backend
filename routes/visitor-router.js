@@ -7,24 +7,24 @@ var visitorModel = require("../models/visitor-model");
 //get all visitors
 router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all visitors");
-  const all_stores = await visitorModel.find({ is_deleted: false });
-  res.json(all_stores);
+  const all_visitors = await visitorModel.find({ is_deleted: false });
+  res.json(all_visitors);
 });
 
 //create a new visitor
-router.post("/", async function (req, res) {
-  const newStore = new visitorModel(req.body);
-  try {
-    const inserted = await newStore.save();
-    if (!inserted) throw new Error("[ERROR] : Failed to insert");
-    else console.log("[INFO] : Success. Inserted Data");
-    res.status(200).json(inserted);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-});
+// router.post("/", async function (req, res) {
+//   const newVisitor = new visitorModel(req.body);
+//   try {
+//     const inserted = await newVisitor.save();
+//     if (!inserted) throw new Error("[ERROR] : Failed to insert");
+//     else console.log("[INFO] : Success. Inserted Data");
+//     res.status(200).json(inserted);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// });
 
 //update a visitor
 router.put("/:id", async (req, res) => {
