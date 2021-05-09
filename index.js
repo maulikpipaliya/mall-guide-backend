@@ -2,12 +2,14 @@ var express = require("express");
 var bodyParser = require("body-parser");
 const CONFIG = require("./config");
 const db = require("./db-connect");
+const cors = require('cors')
 
 var app = express();
 
 // app.use(cookieParser());
 app.use(bodyParser.json());
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(upload.array());
 
