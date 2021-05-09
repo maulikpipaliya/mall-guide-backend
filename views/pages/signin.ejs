@@ -14,12 +14,12 @@
       <div class="user signinBx">
         <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img2.jpg" alt="" /></div>
         <div class="formBx">
-          <form action="" onsubmit="return false;">
+          <form action="/login" method="POST">
             <h2>Sign In</h2>
-            <input type="text" name="" placeholder="Username" />
-            <input type="password" name="" placeholder="Password" />
+            <input type="text" name="username" placeholder="Username" />
+            <input type="password" name="password" placeholder="Password" />
             <label> User  Role </label>  
-            <select>  
+            <select name='userrole'>  
             <option value = "Visitor"> Visitor    
             </option> 
             <option value = "Store Owner"> Store Owner   
