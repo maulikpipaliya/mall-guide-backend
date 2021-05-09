@@ -5,6 +5,7 @@ var router = express.Router();
 var storeModel = require("../models/store-model");
 var categoryModel = require("../models/category-model");
 var store2CategoryModel = require("../models/store-2-category-model");
+var ratingModel = require("../models/rate-model");
 
 //get all stores
 router.get("/", async function (req, res) {
@@ -73,9 +74,9 @@ router.get("/:name", async (req, res) => {
   const { name } = req.params;
   try {
     console.log(name);
-    const response = await storeModel.findOne({ route_name: name });
-    if (!response) throw new Error("[ERROR] : Failed to get a store " + name);
-    const storeDetails = { ...response._doc, ...req.body };
+    const storeObj = await storeModel.findOne({ route_name: name });
+    if (!storeObj) throw new Error("[ERROR] : Failed to get a store " + name);
+    const storeDetails = { ...storeObj._doc, ...req.body };
     res.status(200).json(storeDetails);
   } catch (error) {
     res.status(500).json({
@@ -89,22 +90,50 @@ router.get("/:name/categories", async (req, res) => {
   const { name } = req.params;
   try {
     // console.log(name);
-    const response = await storeModel.findOne({ route_name: name });
-    if (!response) throw new Error("[ERROR] : Failed to get a store " + name);
+    const storeObj = await storeModel.findOne({ route_name: name });
+    if (!storeObj) throw new Error("[ERROR] : Failed to get a store " + name);
     const categoriesId = await store2CategoryModel.find({
-      store_id: response._id,
+      store_id: storeObj._id,
     });
     let store2CategoriesDetails = [];
     for (let i = 0; i < categoriesId.length; i++) {
       const categoryId = categoriesId[i].category_id;
-      const categoriesId1 = await categoryModel.findOne({
+      const categoryObj = await categoryModel.findOne({
         _id: categoryId,
       });
-      console.log(categoryId);
-      console.log(categoriesId1);
-      store2CategoriesDetails.push(categoriesId1);
+      // console.log(categoryId);
+      // console.log(categoryObj);
+      store2CategoriesDetails.push(categoryObj);
     }
     res.status(200).json(store2CategoriesDetails);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//Get ratings of particular stores
+router.get("/:name/rating", async (req, res) => {
+  const { name } = req.params;
+  try {
+    // console.log(name);
+    const storeObj = await storeModel.findOne({ route_name: name });
+    if (!storeObj) throw new Error("[ERROR] : Failed to get a store " + name);
+    const ratingsArray = await ratingModel.find({
+      store_id: storeObj._id,
+    });
+    // let store2CategoriesDetails = [];
+    // for (let i = 0; i < ratingsArray.length; i++) {
+    //   const categoryId = ratingsArray[i].category_id;
+    //   const categoriesId1 = await categoryModel.findOne({
+    //     _id: categoryId,
+    //   });
+    //   console.log(categoryId);
+    //   console.log(categoriesId1);
+    //   store2CategoriesDetails.push(categoriesId1);
+    // }
+    res.status(200).json(ratingsArray);
   } catch (error) {
     res.status(500).json({
       message: error.message,

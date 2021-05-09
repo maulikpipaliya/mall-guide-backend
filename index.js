@@ -2,14 +2,14 @@ var express = require("express");
 var bodyParser = require("body-parser");
 const CONFIG = require("./config");
 const db = require("./db-connect");
-const cors = require('cors')
+const cors = require("cors");
 
 var app = express();
 
 // app.use(cookieParser());
 app.use(bodyParser.json());
 
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(upload.array());
 
@@ -43,7 +43,7 @@ app.use("/store-2-categoires", store_2_categories_router);
 app.use("/visitor", visitor_router);
 app.use("/login", login_router);
 app.use("/registration", registration_visitor_router);
-app.use("/rating", rating_visitior_router);
+app.use("/rate", rating_visitior_router);
 
 app.listen(CONFIG.PORT, () =>
   console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`)
