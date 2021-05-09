@@ -4,7 +4,7 @@ const locationModel = require("./models/location-model");
 var router = express.Router();
 
 //
-router.get("/landing", async function (req, res) {
+router.get("/", async function (req, res) {
   res.render("../views/pages/landing");
 });
 
