@@ -83,7 +83,7 @@ router.get("/:name", async (req, res) => {
     const storeObj = await storeModel.findOne({ route_name: name });
     if (!storeObj) throw new Error("[ERROR] : Failed to get a store " + name);
     const storeDetails = { ...storeObj._doc, ...req.body };
-    res.status(200).json(storeDetails);
+    res.render("../views/pages/addidas", { storeDetails: storeDetails });
   } catch (error) {
     res.status(500).json({
       message: error.message,
