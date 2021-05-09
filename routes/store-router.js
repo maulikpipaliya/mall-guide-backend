@@ -6,6 +6,7 @@ var storeModel = require("../models/store-model");
 var categoryModel = require("../models/category-model");
 var store2CategoryModel = require("../models/store-2-category-model");
 var ratingModel = require("../models/rate-model");
+var locationModel = require("../models/location-model");
 
 //get all stores
 router.get("/", async function (req, res) {
@@ -18,7 +19,7 @@ router.get("/", async function (req, res) {
 router.post("/", async function (req, res) {
   let newStore = new storeModel(req.body);
   try {
-    newStore.route_name = newStore.store_name.replaceAll(" ", "-");
+    newStore.route_name = newStore.store_name.split(" ").join("-");
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
@@ -134,6 +135,35 @@ router.get("/:name/rating", async (req, res) => {
     //   store2CategoriesDetails.push(categoriesId1);
     // }
     res.status(200).json(ratingsArray);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//Get all the store of particular block and floor number
+router.get("/:block/:floor", async (req, res) => {
+  const { block, floor } = req.params;
+  try {
+    // console.log(block);
+    // console.log(floor);
+    const locationId = await locationModel.findOne({
+      floor_number: parseInt(floor),
+      block_name: block,
+    });
+    if (!locationId)
+      throw new Error(
+        "[ERROR] : Failed to get a stores at block " +
+          block +
+          " and floor numeber " +
+          floor
+      );
+    // console.log(locationId);
+    const storesArray = await storeModel.find({
+      location_id: locationId._id,
+    });
+    res.status(200).json(storesArray);
   } catch (error) {
     res.status(500).json({
       message: error.message,

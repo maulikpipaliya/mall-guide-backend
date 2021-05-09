@@ -12,7 +12,7 @@ const storeSchema = new Schema({
     type: String,
   },
   location_id: {
-    type: Number,
+    type: String,
     required: true,
   },
   route_name: {

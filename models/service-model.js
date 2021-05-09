@@ -6,7 +6,7 @@ const serviceSchema = new Schema({
     required: true,
   },
   location_id: {
-    type: Number,
+    type: String,
     required: true,
   },
   is_deleted: {

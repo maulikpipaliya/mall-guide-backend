@@ -5,7 +5,7 @@ const locationSchema = new Schema({
     type: Number,
     required: true,
   },
-  block_number: {
+  block_name: {
     type: String,
     required: true,
   },

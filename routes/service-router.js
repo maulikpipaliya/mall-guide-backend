@@ -3,6 +3,7 @@ var router = express.Router();
 
 //data from database
 var serviceModel = require("../models/service-model");
+var locationModel = require("../models/location-model");
 
 //get all services
 router.get("/", async function (req, res) {
@@ -74,6 +75,35 @@ router.get("/:id", async (req, res) => {
     if (!response) throw new Error("[ERROR] : Failed to get a service " + id);
     const service_details = { ...response._doc, ...req.body };
     res.status(200).json(service_details);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//Get all the store of particular block and floor number
+router.get("/:block/:floor", async (req, res) => {
+  const { block, floor } = req.params;
+  try {
+    // console.log(block);
+    // console.log(floor);
+    const locationId = await locationModel.findOne({
+      floor_number: parseInt(floor),
+      block_name: block,
+    });
+    if (!locationId)
+      throw new Error(
+        "[ERROR] : Failed to get a services at block " +
+          block +
+          " and floor numeber " +
+          floor
+      );
+    // console.log(locationId);
+    const servicesArray = await serviceModel.find({
+      location_id: locationId._id,
+    });
+    res.status(200).json(servicesArray);
   } catch (error) {
     res.status(500).json({
       message: error.message,
