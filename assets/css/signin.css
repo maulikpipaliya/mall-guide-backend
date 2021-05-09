@@ -20,7 +20,7 @@ section {
 section .container {
   position: relative;
   width: 800px;
-  height: 500px;
+  height: 660px;
   background: #fff;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -75,7 +75,7 @@ section .container .user .formBx form h2 {
   color: #555;
 }
 
-section .container .user .formBx form input {
+section .container .user .formBx form input{
   position: relative;
   width: 100%;
   padding: 10px;
@@ -89,6 +89,23 @@ section .container .user .formBx form input {
   letter-spacing: 1px;
   font-weight: 300;
 }
+
+section .container .user .formBx form select{
+  position: relative;
+  width: 50%;
+  padding: 10px;
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 8px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+
 
 section .container .user .formBx form input[type='submit'] {
   max-width: 100px;
