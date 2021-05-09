@@ -19,6 +19,10 @@ const storeSchema = new Schema({
     type: String,
     required: true,
   },
+  url: {
+    type: String,
+    requrired: true,
+  },
   is_deleted: {
     type: Boolean,
     default: false,
