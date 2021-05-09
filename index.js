@@ -82,7 +82,9 @@ app.use("/registration", registration_visitor_router);
 app.use("/rate", rating_visitior_router);
 app.use("/sendstorerequest", store_request_router);
 app.use("/storerequest", store_request_mall_owner_router);
-app.use("/", landing_router);
+// app.use("/landing", landing_router);
+
+app.use("/", require("./client-routes"));
 
 app.listen(CONFIG.PORT, () =>
   console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`)
