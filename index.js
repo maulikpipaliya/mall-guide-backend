@@ -1,30 +1,51 @@
 var express = require("express");
+const session = require("express-session");
+// const MongoStore1 = require("connect-mongo");
 var bodyParser = require("body-parser");
 const CONFIG = require("./config");
+// const MongoStore = new MongoStore1(CONFIG.mongoUri);
 const db = require("./db-connect");
 const cors = require("cors");
+var morgan = require("morgan");
+var cookieParser = require("cookie-parser");
 
 var app = express();
 
-// app.use(cookieParser());
+// set morgan to log info about our requests for development use.
+app.use(morgan("dev"));
+
+// initialize cookie-parser to allow us access the cookies stored in the browser.
+app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(upload.array());
 
-//use sessions for tracking logins
+// initialize express-session to allow us track the logged-in user across sessions.
 app.use(
   session({
-    secret: "work hard",
+    key: "user_sid",
+    secret: "somerandonstuffs",
     resave: true,
     saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: db,
-    }),
+    cookie: {
+      expires: 600000 * 6, // 1 hour
+    },
   })
 );
 
+// This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
+// This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
+app.use((req, res, next) => {
+  // console.log("keshav");
+  if (req.cookies.user_sid && !req.session.user) {
+    res.clearCookie("user_sid");
+  }
+  next();
+});
+
+// middleware function to check for logged-in users
 //Routers
 var store_router = require("./routes/store-router");
 var event_router = require("./routes/event-router");
