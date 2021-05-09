@@ -38,18 +38,34 @@ const validateuser = async (model, login, res) => {
   } else {
     flag = true;
   }
-  if (flag) validatePassword(user, login, res);
+  if (flag) {
+    validatePassword(user, login, res);
+    user._id;
+  } else return null;
 };
 
 router.post("/", async (req, res) => {
   const login = req.body;
   try {
     if (login.userrole == 2) {
-      await validateuser(visitorModel, login, res);
+      // visitor
+      const userid = await validateuser(visitorModel, login, res);
+      if (userid) {
+        req.session.userId = userid;
+        req.session.role = 2;
+      }
     } else if (login.userrole == 1) {
-      await validateuser(storeOwnerModel, login, res);
+      // store owner
+      const userid = await validateuser(storeOwnerModel, login, res);
+      if (userid) {
+        req.session.userId = userid;
+        req.session.role = 1;
+      }
     } else if (login.userrole == 0) {
+      // mall owner
       if (login.username == "admin" && login.password == "admin") {
+        req.session.userId = "Admin";
+        req.session.role = 0;
         res.status(200).json({ message: "Login Successfull" });
       } else {
         throw new Error("[ERROR] : User Not Found");

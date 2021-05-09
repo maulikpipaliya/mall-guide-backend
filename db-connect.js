@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { mongoUri, PORT } = require("./config");
 
-mongoose
+const db = mongoose
   .connect(mongoUri, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -14,3 +14,5 @@ mongoose
     )
   )
   .catch((err) => console.log(err));
+
+module.exports = db;

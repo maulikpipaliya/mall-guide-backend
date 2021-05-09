@@ -13,6 +13,18 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(upload.array());
 
+//use sessions for tracking logins
+app.use(
+  session({
+    secret: "work hard",
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: db,
+    }),
+  })
+);
+
 //Routers
 var store_router = require("./routes/store-router");
 var event_router = require("./routes/event-router");
@@ -48,7 +60,6 @@ app.use("/registration", registration_visitor_router);
 app.use("/rate", rating_visitior_router);
 app.use("/sendstorerequest", store_request_router);
 app.use("/storerequest", store_request_mall_owner_router);
-
 
 app.listen(CONFIG.PORT, () =>
   console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`)

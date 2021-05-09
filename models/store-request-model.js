@@ -15,6 +15,10 @@ const storeRequestSchema = new Schema({
     type: String,
     required: true,
   },
+  location_id: {
+    type: String,
+    default: null,
+  },
   is_approved: {
     type: Boolean,
     default: false,
