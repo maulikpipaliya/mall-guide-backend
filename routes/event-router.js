@@ -18,7 +18,8 @@ router.post("/", async function (req, res) {
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
-    res.status(200).json(inserted);
+    // res.status(200).json(inserted);
+    res.render('./mall_owner/events', inserted);
   } catch (error) {
     res.status(500).json({
       message: error.message,

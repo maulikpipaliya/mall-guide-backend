@@ -16,16 +16,21 @@
         </div>
         <div class="row clearfix">
           <div class="">
-            <form>
+            <form method="post" action="/events">
               <div class="input_field">
                 <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-                <input type="text" name="eventname" placeholder="Event Name" required />
+                <input
+                  type="text"
+                  name="event_name"
+                  placeholder="Event Name"
+                  required
+                />
               </div>
               <div class="input_field">
                 <span><i aria-hidden="true" class="fa fa-lock"></i></span>
                 <input
                   type="text"
-                  name="eventdescription"
+                  name="event_desc"
                   placeholder="Event Description"
                   required
                 />
@@ -34,7 +39,7 @@
                 <span><i aria-hidden="true" class="fa fa-lock"></i></span>
                 <input
                   type="text"
-                  name="organizername"
+                  name="organizer"
                   placeholder="Organizer Name"
                   required
                 />
@@ -43,26 +48,26 @@
                 <span><i aria-hidden="true" class="fa fa-lock"></i></span>
                 <input
                   type="text"
-                  name="eventlocation"
+                  name="event_location"
                   placeholder="Location"
                   required
                 />
               </div>
               <div class="row clearfix">
                 <div class="col_half">
-                    <div class="input_field">
-                      <span><i aria-hidden="true" class="fa fa-user">Start Date</i></span>
-                    </div>
+                  <div class="input_field">
+                    <span
+                      ><i aria-hidden="true" class="fa fa-user"
+                        >Start Date</i
+                      ></span
+                    >
                   </div>
-                  <div class="col_half">
-                    <div class="input_field">
-                      <span><i aria-hidden="true" class="fa fa-user"></i>End</span>
-                    </div>
-                  </div>
+                </div>
                 <div class="col_half">
                   <div class="input_field">
-                    <!-- <span><i aria-hidden="true" class="fa fa-user"></i></span> -->
-                    <input type="date" name="startdate" placeholder="Start Date" />
+                    <span
+                      ><i aria-hidden="true" class="fa fa-user"></i>End</span
+                    >
                   </div>
                 </div>
                 <div class="col_half">
@@ -70,14 +75,29 @@
                     <!-- <span><i aria-hidden="true" class="fa fa-user"></i></span> -->
                     <input
                       type="date"
-                      name="enddate"
+                      name="start_date"
+                      placeholder="Start Date"
+                    />
+                  </div>
+                </div>
+                <div class="col_half">
+                  <div class="input_field">
+                    <!-- <span><i aria-hidden="true" class="fa fa-user"></i></span> -->
+                    <input
+                      type="date"
+                      name="end_date"
                       placeholder="End Date"
                       required
                     />
                   </div>
                 </div>
               </div>
-              <input class="eventregisterd" type="submit" value="Register" />
+              <input
+                class="eventregisterd"
+                type="submit"
+                onclick="registerEvent"
+                value="Register"
+              />
             </form>
           </div>
         </div>
@@ -88,4 +108,11 @@
       <a href="http://www.designtheway.com" target="_blank">Design the way</a> -->
     </p>
   </body>
+
+  <script>
+    function registerEvent(e) {
+      e.preventDefault();
+      console.log($(form).serializeArray());
+    }
+  </script>
 </html>
