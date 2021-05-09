@@ -11,6 +11,9 @@ var app = express();
 
 // set morgan to log info about our requests for development use.
 app.use(morgan("dev"));
+app.use(express.static("./assets"));
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 
 // initialize cookie-parser to allow us access the cookies stored in the browser.
 app.use(cookieParser());
@@ -60,6 +63,7 @@ var registration_visitor_router = require("./routes/visitor/registration-visitor
 var rating_visitior_router = require("./routes/visitor/rating-router");
 var store_request_router = require("./routes/store-request-router");
 var store_request_mall_owner_router = require("./routes/mall-owner/store-request-mall-owner-router");
+var landing_router = require("./routes/landing-router");
 
 //Use the Router on the sub route /movies
 app.use("/stores", store_router);
@@ -78,6 +82,7 @@ app.use("/registration", registration_visitor_router);
 app.use("/rate", rating_visitior_router);
 app.use("/sendstorerequest", store_request_router);
 app.use("/storerequest", store_request_mall_owner_router);
+app.use("/", landing_router);
 
 app.listen(CONFIG.PORT, () =>
   console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`)

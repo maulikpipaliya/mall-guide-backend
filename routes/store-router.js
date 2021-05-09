@@ -8,6 +8,11 @@ var store2CategoryModel = require("../models/store-2-category-model");
 var ratingModel = require("../models/rate-model");
 var locationModel = require("../models/location-model");
 
+//random
+router.get("/haha", async function (req, res) {
+  res.render("../views/pages/landing");
+});
+
 //get all stores
 router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all stores");
