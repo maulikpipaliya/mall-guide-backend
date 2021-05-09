@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/store-page.css" />
-    <title>Adidas</title>
+    <title><%= storeDetails.store_name %></title>
 </head>
 
 <body>
@@ -19,12 +19,12 @@
     <div class="container">
         <div class="grid-container">
             <div class="grid-item item1">
-                <img src="/mall-guide/images/Adidas-logo.jpg" alt="Adidas" width="200px">
+                <img src="<%= storeDetails.url %>" alt="<%= storeDetails.store_name %>">
                 <h6><b>Open Hours:</b></h6>
                 <h6><b>Daily,from 10:00 AM Till 09:00 PM</b></h6>
             </div>
             <div class="grid-item item2">
-                <h1style="font-size: 15px;><b>The Nike Shoes</b></h1>
+                <h1style="font-size: 15px;><b><%= storeDetails.store_name %></b></h1>
             <hr size=" 4 " color="grey ">
             <h6 style="font-size: 20px; ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, laboriosam. Expedita illo sint corrupti nihil modi asperiores temporibus accusantium eligendi dolorum non eius maiores dolorem repudiandae, aspernatur dolore eos nam!
             </h6>
