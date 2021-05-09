@@ -7,9 +7,9 @@ var storeOwnerModel = require("../models/store-owner-model");
 var visitsModel = require("../models/visits-model");
 
 var sessionChecker = (req, res, next) => {
-  // console.log("keshav1111111 + " + req.session.userId);
+  console.log("keshav1111111 + " + req.session.userId);
   if (req.session.user && req.cookies.user_sid) {
-    res.redirect("/registration");
+    res.redirect("/login");
   } else {
     next();
   }
@@ -52,10 +52,11 @@ const validateuser = async (model, login) => {
   else return null;
 };
 
-router.post("/", sessionChecker, async (req, res) => {
+router.post("/", async (req, res) => {
   const login = req.body;
+  // console.log(login);
   try {
-    if (login.userrole == 2) {
+    if (login.userrole == "Visitor") {
       // visitor
       const userid = await validateuser(visitorModel, login);
       // console.log("User id = " + userid);
@@ -68,16 +69,17 @@ router.post("/", sessionChecker, async (req, res) => {
         if (!inserted)
           throw new Error("[ERROR] : Failed to insert entry in visits");
         else console.log("[INFO] : Success");
-        res.status(200).json(inserted);
+        // res.status(200).json(inserted);
+        res.redirect("/home");
       }
-    } else if (login.userrole == 1) {
+    } else if (login.userrole == "Store Owner") {
       // store owner
       const userid = await validateuser(storeOwnerModel, login);
       if (userid) {
         req.session.user = userid;
         req.session.role = 1;
       }
-    } else if (login.userrole == 0) {
+    } else if (login.userrole == "Mall Owner") {
       // mall owner
       if (login.username == "admin" && login.password == "admin") {
         req.session.userId = "Admin";
