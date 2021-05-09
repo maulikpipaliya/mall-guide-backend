@@ -67,6 +67,7 @@ var store_request_mall_owner_router = require("./routes/mall-owner/store-request
 var landing_router = require("./routes/landing-router");
 var event_registration_router = require("./routes/event-registration-router");
 var contactus_router = require("./routes/contactus-router");
+var aboutus_router = require("./routes/aboutus-router");
 
 //Use the Router on the sub route /movies
 app.use("/stores", store_router);
@@ -87,6 +88,7 @@ app.use("/sendstorerequest", store_request_router);
 app.use("/storerequest", store_request_mall_owner_router);
 app.use("/eventregistration", event_registration_router);
 app.use("/contactus", contactus_router);
+app.use("/aboutus", aboutus_router);
 // app.use("/landing", landing_router);
 
 app.use("/", require("./client-routes"));
