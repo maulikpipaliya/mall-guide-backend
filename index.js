@@ -1,9 +1,7 @@
 var express = require("express");
 const session = require("express-session");
-// const MongoStore1 = require("connect-mongo");
 var bodyParser = require("body-parser");
 const CONFIG = require("./config");
-// const MongoStore = new MongoStore1(CONFIG.mongoUri);
 const db = require("./db-connect");
 const cors = require("cors");
 var morgan = require("morgan");
@@ -45,7 +43,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// middleware function to check for logged-in users
 //Routers
 var store_router = require("./routes/store-router");
 var event_router = require("./routes/event-router");
@@ -57,7 +54,7 @@ var offer_router = require("./routes/offer-router");
 var services_router = require("./routes/service-router");
 var categories_router = require("./routes/category-router");
 var store_2_categories_router = require("./routes/store-2-category-router");
-var visitor_router = require("./routes/visitor-router");
+var visitor_router = require("./routes/mall-owner/visitor-router");
 var login_router = require("./routes/login-router");
 var registration_visitor_router = require("./routes/visitor/registration-visitors-router");
 var rating_visitior_router = require("./routes/visitor/rating-router");

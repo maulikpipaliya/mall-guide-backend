@@ -34,7 +34,7 @@ router.get("/", async function (req, res) {
 router.post("/:id/accept", async (req, res) => {
   const { id } = req.params;
   try {
-    req.body.updated_at = Date.now();
+    req.body.updated_at = new Date();
     req.body.is_approved = true;
     req.body.is_deleted = true;
     // console.log(req.body);
@@ -61,7 +61,7 @@ router.post("/:id/accept", async (req, res) => {
 router.put("/:id/deny", async (req, res) => {
   const { id } = req.params;
   try {
-    req.body.updated_at = Date.now();
+    req.body.updated_at = new Date();
     req.body.is_approved = false;
     req.body.is_deleted = true;
     console.log(req.body);

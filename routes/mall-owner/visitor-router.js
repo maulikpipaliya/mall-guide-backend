@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 
 //data from database
-var visitorModel = require("../models/visitor-model");
+var visitorModel = require("../../models/visitor-model");
+var visitsModel = require("../../models/visits-model");
 
 //get all visitors
 router.get("/", async function (req, res) {
@@ -31,7 +32,7 @@ router.put("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    res.body.updated_at = Date.now();
+    res.body.updated_at = new Date();
     const response = await visitorModel.findByIdAndUpdate(id, req.body);
     if (!response) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response._doc, ...req.body };
@@ -49,12 +50,36 @@ router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    res.body.updated_at = Date.now();
+    res.body.updated_at = new Date();
     res.body.is_deleted = true;
     const deleted = await visitorModel.findByIdAndDelete(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
     res.status(200).json(deleted);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+//Get particular visitor
+router.get("/age-wise-traffic", async (req, res) => {
+  try {
+    var b = new Date();
+    var c = new Date();
+    console.log(c.toLocaleString());
+    c.setDate(c.getDate() - 7);
+    console.log(c.toISOString());
+    // const response = await visitsModel.find({
+    //   created_at: { $gt: new ISODate(c) },
+    // });
+    // .sort({ visit_datetime: -1 });
+    const response = visitsModel.find([{ $search: { range: { gt: c } } }]);
+    console.log(response);
+    if (!response) throw new Error("[ERROR] : Failed to get a visitor " + id);
+    // const visitorDetails = { ...response._doc, ...req.body };
+    res.status(200).json(response);
   } catch (error) {
     res.status(500).json({
       message: error.message,

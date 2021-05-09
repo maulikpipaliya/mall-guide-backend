@@ -34,7 +34,7 @@ router.put("/:id", async (req, res) => {
 
   try {
     console.log(res.body);
-    res.body.updated_at = Date.now();
+    res.body.updated_at = new Date();
     const response = await serviceModel.findByIdAndUpdate(id, res.body);
     // if (!response) throw new Error("[ERROR] : --Failed to update");
     const updated = { ...response._doc, ...req.body };
@@ -54,7 +54,7 @@ router.delete("/:id", async (req, res) => {
 
   try {
     // console.log(res.body);
-    res.body.updated_at = Date.now();
+    res.body.updated_at = new Date();
     res.body.is_deleted = true;
     const deleted = await serviceModel.findByIdAndUpdate(id, res.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete service");

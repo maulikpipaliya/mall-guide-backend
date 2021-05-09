@@ -19,7 +19,7 @@ const rateSchema = new Schema({
   // },
   created_at: {
     type: Date,
-    default: Date.now(),
+    default: new Date(),
   },
   // updated_at: {
   //   type: Date,

@@ -7,7 +7,7 @@ const visitSchema = new Schema({
   },
   visit_datetime: {
     type: Date,
-    default: Date.now(),
+    default: new Date(),
   },
   is_deleted: {
     type: Boolean,

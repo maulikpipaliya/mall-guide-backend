@@ -33,7 +33,7 @@ router.put("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    res.body.updated_at = Date.now();
+    res.body.updated_at = new Date();
     const response = await categoryModel.findByIdAndUpdate(id, req.body);
     if (!response) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response._doc, ...req.body };
@@ -51,7 +51,7 @@ router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    res.body.updated_at = Date.now();
+    res.body.updated_at = new Date();
     res.body.is_deleted = true;
     const deleted = await categoryModel.findByIdAndUpdate(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
