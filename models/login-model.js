@@ -9,11 +9,10 @@ const loginSchema = new Schema({
     type: String,
     required: true,
   },
-  userrole:{
-    type:Number,
-    required:true
+  userrole: {
+    type: Number,
+    required: true,
   },
-  
 });
 
 const loginModel = model("login", loginSchema);

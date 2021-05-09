@@ -5,7 +5,6 @@ var router = express.Router();
 var visitorModel = require("../models/visitor-model");
 var storeOwnerModel = require("../models/store-owner-model");
 
-
 function validatePassword(user, login, res) {
   if (user[0].password == login.password) {
     res.status(200).json({ message: "Login Successfull" });
@@ -19,7 +18,7 @@ const validateuser = async (model, login, res) => {
   console.log("UserName - " + user);
   if (user.length == 0) {
     user = await model.find({
-      email: login.username
+      email: login.username,
     });
     console.log("Email - " + user);
     if (user.length == 0) {
@@ -39,27 +38,22 @@ const validateuser = async (model, login, res) => {
   } else {
     flag = true;
   }
-  if (flag)
-    validatePassword(user, login, res);
-}
+  if (flag) validatePassword(user, login, res);
+};
 
 router.post("/", async (req, res) => {
   const login = req.body;
   try {
     if (login.userrole == 2) {
       await validateuser(visitorModel, login, res);
-    }
-    else if (login.userrole == 1) {
+    } else if (login.userrole == 1) {
       await validateuser(storeOwnerModel, login, res);
-    }
-    else if(login.userrole== 0)
-    {
-      
-         if(login.username=="admin"&&login.password=="admin") {
-          res.status(200).json({ message: "Login Successfull" });
-        } else {
-          throw new Error("[ERROR] : User Not Found");
-        }
+    } else if (login.userrole == 0) {
+      if (login.username == "admin" && login.password == "admin") {
+        res.status(200).json({ message: "Login Successfull" });
+      } else {
+        throw new Error("[ERROR] : User Not Found");
+      }
     }
   } catch (error) {
     res.status(500).json({

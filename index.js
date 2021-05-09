@@ -24,7 +24,8 @@ var categories_router = require("./routes/category-router");
 var store_2_categories_router = require("./routes/store-2-category-router");
 var visitor_router = require("./routes/visitor-router");
 var login_router = require("./routes/login-router");
-var registration_visitor_router = require("./routes/registration-visitors-router");
+var registration_visitor_router = require("./routes/visitor/registration-visitors-router");
+var rating_visitior_router = require("./routes/visitor/rating-router");
 
 //Use the Router on the sub route /movies
 app.use("/stores", store_router);
@@ -40,7 +41,7 @@ app.use("/store-2-categoires", store_2_categories_router);
 app.use("/visitor", visitor_router);
 app.use("/login", login_router);
 app.use("/registration", registration_visitor_router);
-
+app.use("/rating", rating_visitior_router);
 
 app.listen(CONFIG.PORT, () =>
   console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`)
