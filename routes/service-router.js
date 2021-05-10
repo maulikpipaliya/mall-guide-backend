@@ -111,4 +111,15 @@ router.get("/:block/:floor", async (req, res) => {
   }
 });
 
+
+
+
+// MALL OWNER ---------------
+
+
+
+
+
+
+
 module.exports = router;
