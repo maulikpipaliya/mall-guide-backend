@@ -19,7 +19,7 @@
 
 <div class="container">
 
-    <form class="form-signin" action="index.html">
+    <form class="form-signin" method="POST" action="/">
         <div class="form-signin-heading text-center">
             <h1 class="sign-title text-dark" style="color: black;">Store Registration</h1>
             <img src="/img/location-pin.svg" alt="" height="100px"/>
@@ -28,10 +28,11 @@
 
         <div class="login-wrap">
             <p>Enter your personal details below</p>
-            <input type="text" autofocus="" placeholder="Store Owner Name" class="form-control">
-            <input type="text" autofocus="" placeholder="Address" class="form-control">
-            <input type="text" autofocus="" placeholder="Email" class="form-control">
-            <input type="text" autofocus="" placeholder="City/Town" class="form-control">
+            <input type="text" autofocus="" name="username" placeholder="Username" class="form-control">
+            <input type="text" autofocus="" name="name" placeholder="Store Owner Name" class="form-control">
+            <input type="text" autofocus="" placeholder="Address" name="address" class="form-control">
+            <input type="text" autofocus="" placeholder="Email" name="email" class="form-control">
+            <input type="text" autofocus="" placeholder="Contact" class="form-control">
             <div class="radios">
                 <label for="radio-01" class="label_radio col-lg-6 col-sm-6">
                     <input type="radio" checked="" value="1" id="radio-01" name="sample-radio"> Male
@@ -43,10 +44,12 @@
 
             <p></p>
             <p> Enter your store details below</p>
-            <input type="text" autofocus="" placeholder="Store Name"  class="form-control">
-            <input type="text" autofocus="" placeholder="Social Handle"  class="form-control">
-            <input type="password" placeholder="Password" class="form-control">
-            <input type="password" placeholder="Re-type Password" class="form-control">
+            <input type="text" autofocus="" name="store_name" placeholder="Store Name"  class="form-control">
+            <input type="text" autofocus="" placeholder="Email" name="email" class="form-control">
+            <input type="text" autofocus="" name="social_handle" placeholder="Social Handle"  class="form-control">
+            <input type="text" autofocus="" name="url" placeholder="Logo Url"  class="form-control">
+            <input type="password" placeholder="Password" name="password" class="form-control">
+            <!-- <input type="password" placeholder="Re-type Password" class="form-control"> -->
             <select class="form-control input-sm m-bot15" style="font-size: 12px;background: #eaeaec">
                 <option>Floor 1</option>
                 <option>Floor 2</option>

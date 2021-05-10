@@ -19,8 +19,8 @@ router.get("/so-dashboard", async function (req, res) {
   });
 });
 
-router.get("/so-store-request", async function (req, res) {
-  res.render("../views/pages/store-owner/store-request");
+router.get("/store-request", async function (req, res) {
+  res.render("../views/pages/store-request");
 });
 
 router.get("/so-login", async function (req, res) {
