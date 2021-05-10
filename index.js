@@ -93,6 +93,8 @@ app.use("/aboutus", aboutus_router);
 app.use("/", require("./client-routes"));
 app.use("/mo", require("./routes/mall-owner/mall-owner-routes"));
 
+app.use("/so", require("./routes/store-owner/store-owner-routes"));
+
 app.listen(CONFIG.PORT, () =>
   console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`)
 );
