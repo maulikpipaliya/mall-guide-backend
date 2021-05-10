@@ -2,37 +2,36 @@
 <section class="page-section bg-light" id="portfolio">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">Stores</h2>
+      <h2 class="section-heading text-uppercase">Offers</h2>
       <h3 class="section-subheading text-muted">
         All stores at your fingertips
       </h3>
     </div>
     <div class="row">
-      <!-- <% 
-        all_stores.name
-      %> -->
-      <% if(all_stores.length!=0) { for(var i=0; i < all_stores.length; i++) {
-      %>
+      <% if(offers.length!=0) { for(var i=0; i < offers.length; i++) { %>
       <div class="col-lg-4 col-sm-6 mb-4">
         <div class="portfolio-item">
-          <a
-            class="portfolio-link"
-            href="/stores/<%= all_stores[i].route_name %>"
-          >
+          <a class="portfolio-link" href="">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="<%= all_stores[i].url %>" alt="..." />
+            <img class="img-fluid" src="<%= offers[i].url %>" alt="..." />
           </a>
           <div class="portfolio-caption">
             <div class="portfolio-caption-heading">
-              <%= all_stores[i].store_name %>
+              <%= offers[i].offer_name %>
             </div>
             <div class="portfolio-caption-subheading text-muted">
-              Block Name = <%= all_stores[i].block %> on Floor <%=
-              all_stores[i].floor %>
+              Offer By = <%= offers[i].offer_by%> <br />
+              Start Date = <%= offers[i].start_date.getDate()%> -
+              <%=offers[i].start_date.getMonth()%> -
+              <%=offers[i].start_date.getFullYear()%>
+              <br />
+              Ends Date = <%= offers[i].end_date.getDate()%> -
+              <%=offers[i].end_date.getMonth()%> -
+              <%=offers[i].end_date.getFullYear() %>
             </div>
           </div>
         </div>

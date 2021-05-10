@@ -9,8 +9,11 @@ var storeModel = require("../models/store-model");
 //get all categories
 router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all categories");
-  const all_stores = await categoryModel.find({ is_deleted: false });
-  res.json(all_stores);
+  const all_categories = await categoryModel.find({ is_deleted: false });
+  // res.json(all_stores);
+  // console.log(all_stores[0].name);
+  res.render("../views/pages/addcategory", {all_categories:all_categories});
+
 });
 
 //create a new category
@@ -20,7 +23,8 @@ router.post("/", async function (req, res) {
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
-    res.status(200).json(inserted);
+    // res.status(200).json(inserted);
+    res.redirect("/home");
   } catch (error) {
     res.status(500).json({
       message: error.message,
