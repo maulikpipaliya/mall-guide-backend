@@ -25,6 +25,11 @@ router.get("/manage-stores", async function (req, res) {
   res.render("../views/pages/mall-owner/manage-stores", {
     all_stores: all_stores,
   });
+
+  all_services = {};
+  res.render("../views/pages/mall-owner/manage-services", {
+    all_services: all_services,
+  });
 });
 
 module.exports = router;

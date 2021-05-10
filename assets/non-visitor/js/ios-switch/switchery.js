@@ -1066,7 +1066,7 @@ require.register("switchery/switchery.js", function(exports, require, module){
  * Authored by Alexander Petkov
  * https://github.com/abpetkov
  *
- * Copyright 2013-2014, Alexander Petkov
+ * Copyright 2013-2021, Alexander Petkov
  * License: The MIT License (MIT)
  * http://opensource.org/licenses/MIT
  *
