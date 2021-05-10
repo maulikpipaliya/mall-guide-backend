@@ -9,7 +9,7 @@ router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all offers");
   const all_offers = await offerModel.find({ is_deleted: false });
   // res.json(all_offers);
-  res.render("../views/pages/offer-page");
+  res.render("../views/pages/offer-page",{all_offer:all_offer});
 });
 
 //create a new offer
@@ -20,7 +20,8 @@ router.post("/", async function (req, res) {
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
     //res.status(200).json(inserted);
-    res.redirect("/home");
+
+    res.redirect("/so/so-show-offer");
   } catch (error) {
     res.status(500).json({
       message: error.message,

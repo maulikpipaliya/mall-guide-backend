@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="ThemeBucket" />
+    <link rel="shortcut icon" href="#" type="image/png" />
+
+    <title>Add Store</title>
+
+    <!--data table-->
+    <link
+      rel="stylesheet"
+      href="/non-visitor/js/data-tables/DT_bootstrap.css"
+    />
+
+    <link href="/non-visitor/css/style.css" rel="stylesheet" />
+    <link href="/non-visitor/css/style-responsive.css" rel="stylesheet" />
+  </head>
+
+  <body class="sticky-header">
+    <section>
+      <%- include('./partials/sidebar'); %>
+
+      <!-- main content start-->
+      <div class="main-content">
+        <%- include('./partials/header'); %>
+
+        <!-- page heading start-->
+        <div class="page-heading">
+          <h3>Add Store</h3>
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Dashboard</a>
+            </li>
+            <li>
+              <a href="#">Stores</a>
+            </li>
+            <li class="active">Add Store</li>
+          </ul>
+        </div>
+        <!-- page heading end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <section class="panel">
+                <header class="panel-heading">Add Store</header>
+                <div class="panel-body">
+                  <div class="form">
+                    <form
+                      class="cmxform form-horizontal adminex-form"
+                      id="commentForm"
+                      method="POST"
+                      action="/stores"
+                    >
+                      <div class="form-group">
+                        <label for="cname" class="control-label col-lg-2"
+                          >Store Name</label
+                        >
+                        <div class="col-lg-10">
+                          <input
+                            class="form-control"
+                            id="cname"
+                            
+                            name="store_name"
+                            minlength="2"
+                            type="text"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="cemail" class="control-label col-lg-2"
+                          >E-Mail (required)</label
+                        >
+                        <div class="col-lg-10">
+                          <input
+                            class="form-control"
+                            id="cemail"
+                            type="email"
+                            name="email"
+                            
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="curl" class="control-label col-lg-2"
+                          >Social Handle (optional)</label
+                        >
+                        <div class="col-lg-10">
+                          <input
+                            class="form-control"
+                            id="curl"
+                            name="social_handle"
+                            
+                          />
+                        </div>
+                      </div>
+
+                    
+
+                      <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                          <button class="btn btn-primary" type="submit">
+                            Add New Store
+                          </button>
+                          <button class="btn btn-default" type="button">
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <footer>2021 &copy; Mall Guide by Team 15</footer>
+        <!--footer section end-->
+      </div>
+      <!-- main content end-->
+    </section>
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="/non-visitor/js/jquery-1.10.2.min.js"></script>
+    <script src="/non-visitor/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="/non-visitor/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/non-visitor/js/bootstrap.min.js"></script>
+    <script src="/non-visitor/js/modernizr.min.js"></script>
+    <script src="/non-visitor/js/jquery.nicescroll.js"></script>
+
+    <!--data table-->
+    <script
+      type="text/javascript"
+      src="/non-visitor/js/data-tables/jquery.dataTables.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/non-visitor/js/data-tables/DT_bootstrap.js"
+    ></script>
+
+    <!--common scripts for all pages-->
+    <script src="/non-visitor/js/scripts.js"></script>
+
+    <!--script for Manage Stores-->
+    <script src="/non-visitor/js/editable-table.js"></script>
+
+    <!-- END JAVASCRIPTS -->
+    <script>
+      $(document).ready(function () {
+        
+      });
+    </script>
+  </body>
+</html>
