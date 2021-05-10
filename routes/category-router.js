@@ -12,8 +12,7 @@ router.get("/", async function (req, res) {
   const all_categories = await categoryModel.find({ is_deleted: false });
   // res.json(all_stores);
   // console.log(all_stores[0].name);
-  res.render("../views/pages/addcategory", {all_categories:all_categories});
-
+  res.render("../views/pages/addcategory", { all_categories: all_categories });
 });
 
 //create a new category
@@ -37,7 +36,7 @@ router.put("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    res.body.updated_at = new Date();
+    req.body.updated_at = new Date();
     const response = await categoryModel.findByIdAndUpdate(id, req.body);
     if (!response) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response._doc, ...req.body };
@@ -55,8 +54,8 @@ router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    res.body.updated_at = new Date();
-    res.body.is_deleted = true;
+    req.body.updated_at = new Date();
+    req.body.is_deleted = true;
     const deleted = await categoryModel.findByIdAndUpdate(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
