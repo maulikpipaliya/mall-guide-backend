@@ -7,8 +7,9 @@ var offerModel = require("../models/offer-model");
 //get all offers
 router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all offers");
-  const all_stores = await offerModel.find({ is_deleted: false });
-  res.json(all_stores);
+  const all_offers = await offerModel.find({ is_deleted: false });
+  // res.json(all_offers);
+  res.render("../views/pages/offer-page");
 });
 
 //create a new offer
@@ -18,7 +19,8 @@ router.post("/", async function (req, res) {
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
-    res.status(200).json(inserted);
+    //res.status(200).json(inserted);
+    res.redirect("/home");
   } catch (error) {
     res.status(500).json({
       message: error.message,

@@ -1,0 +1,30 @@
+* {
+  margin: 2px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  gap: 24px;
+  margin: 10px;
+}
+
+.container .card {
+  padding: 20px;
+}
+
+img {
+  height: 207px;
+}
+.card:hover {
+  background-color: rgba(40, 60, 80, 0.1);
+  transition: 0.5s ease-out;
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+    display: block;
+  }
+}

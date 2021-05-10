@@ -1,20 +1,61 @@
 var express = require("express");
+const eventModel = require("./models/event-model");
+const locationModel = require("./models/location-model");
 var router = express.Router();
 
-//
 router.get("/landing", async function (req, res) {
-    res.render("../views/pages/landing");
+  res.render("../views/pages/landing");
 });
 
+// router.get("/home", async function (req, res) {
+//   res.render("../views/pages/home");
+// });
+
+router.get("/", async function (req, res) {
+  res.render("../views/pages/landing");
+});
+
+var storeModel = require("./models/store-model");
 
 router.get("/home", async function (req, res) {
-    res.render("../views/pages/home");
+  const all_stores = await storeModel.find({ is_deleted: false });
+
+  for (let i = 0; i < all_stores.length; i++) {
+    const locationId = await locationModel.findOne({
+      _id: all_stores[i].location_id,
+    });
+    all_stores[i].block = locationId.block_name;
+    all_stores[i].floor = locationId.floor_number;
+  }
+  console.log("[INFO] : Getting all stores");
+    // res.json(all_stores);
+    console.log("[INFO] : Getting all events");
+  const all_events = await eventModel.find({ is_deleted: false });
+
+  res.render("../views/pages/home", {
+    all_stores: all_stores,
+    events: all_events,
+  });
 });
 
 router.get("/signin", async function (req, res) {
-    res.render("../views/pages/signin");
+  res.render("../views/pages/signin");
 });
 
+router.get("/register-offers", async function (req, res) {
+  res.render("../views/pages/offer-page");
+});
 
+router.get("/dine", async function (req, res) {
+  res.render("../views/pages/dine");
+});
+
+router.get("/event-registration", async function (req, res) {
+  res.render("../views/pages/event-registration");
+});
+
+router.get("/mo-dashboard", async function (req, res) {
+  res.render("../views/pages/signin");
+});
 
 module.exports = router;

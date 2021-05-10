@@ -14,7 +14,7 @@ var app = express();
 app.use(morgan("dev"));
 app.use(express.static("./assets"));
 // set the view engine to ejs
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 // initialize cookie-parser to allow us access the cookies stored in the browser.
 app.use(cookieParser());
@@ -65,7 +65,9 @@ var rating_visitior_router = require("./routes/visitor/rating-router");
 var store_request_router = require("./routes/store-request-router");
 var store_request_mall_owner_router = require("./routes/mall-owner/store-request-mall-owner-router");
 var landing_router = require("./routes/landing-router");
-var event_registration_router = require("./routes/event-registration-router");
+// var event_registration_router = require("./routes/event-registration-router");
+var contactus_router = require("./routes/contactus-router");
+var aboutus_router = require("./routes/aboutus-router");
 
 //Use the Router on the sub route /movies
 app.use("/stores", store_router);
@@ -74,7 +76,7 @@ app.use("/store_owner", store_owner_router);
 app.use("/feedbacks", feedback_router);
 app.use("/locations", location_router);
 app.use("/mall_owner", mall_owner_router);
-app.use("/offers", offer_router);
+app.use("/offer", offer_router);
 app.use("/services", services_router);
 app.use("/categories", categories_router);
 app.use("/store-2-categoires", store_2_categories_router);
@@ -84,7 +86,8 @@ app.use("/registration", registration_visitor_router);
 app.use("/rate", rating_visitior_router);
 app.use("/sendstorerequest", store_request_router);
 app.use("/storerequest", store_request_mall_owner_router);
-app.use("/eventregistration", event_registration_router);
+app.use("/contactus", contactus_router);
+app.use("/aboutus", aboutus_router);
 // app.use("/landing", landing_router);
 
 app.use("/", require("./client-routes"));
