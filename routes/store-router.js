@@ -25,20 +25,24 @@ router.post("/", async function (req, res) {
   let newStore = new storeModel(req.body);
   try {
     newStore.route_name = newStore.store_name.split(" ").join("-");
+    if (req.body.block) {
+      const locationId = await locationModel.findOne({
+        floor_number: parseInt(req.body.floor),
+        block_name: req.body.block,
+      });
+      newStore.location_id = locationId._id;
+    }
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
     // res.status(200).json(inserted);
     res.redirect("/mo/manage-stores");
-
   } catch (error) {
     res.status(500).json({
       message: error.message,
     });
   }
 });
-
-
 
 //update a store
 router.post("/edit/:name", async (req, res) => {
@@ -184,8 +188,5 @@ router.get("/:block/:floor", async (req, res) => {
     });
   }
 });
-
-
-
 
 module.exports = router;

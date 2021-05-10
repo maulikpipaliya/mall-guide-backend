@@ -63,23 +63,29 @@
 
         <!-- store id and category id -->
         <div>
+          <form method="POST" action="/rate">
           <p>Select Store</p>
-          <select class="form-control input-lg m-bot15" required>
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
+          <select class="form-control input-lg m-bot15" name="store_id"  required>
+            <% if(all_stores.length!=0) { for(var i=0; i < all_stores.length;
+            i++) { %>
+            <option value="<%= all_stores[i]._id%>">
+              <%= all_stores[i].store_name%>
+            </option>
+            <% } }%>
           </select>
 
           <p>Select Category</p>
-          <select class="form-control input-lg m-bot15" required>
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
+          <select class="form-control input-lg m-bot15" name="category_id" required>
+            <% if(all_category.length!=0) { for(var i=0; i <
+            all_category.length; i++) { %>
+            <option value="<%= all_category[i]._id%>">
+              <%= all_category[i].name%>
+            </option>
+            <% } }%>
           </select>
         </div>
 
         <!-- Ratings -->
-        <form>
           <fieldset>
             <span class="star-cb-group">
               <input type="radio" id="rating-5" name="rating" value="5" /><label
@@ -114,15 +120,15 @@
               /><label for="rating-0">0</label>
             </span>
           </fieldset>
-        </form>
 
-         <!-- Button -->
-         <div class="form-group" style="padding-top: 10px;">
+        <!-- Button -->
+        <div class="form-group" style="padding-top: 10px">
           <!-- <div class="col-lg-offset-2 col-lg-10"> -->
-            <button class="btn btn-primary" type="submit">Submit</button>
+          <button class="btn btn-primary" type="submit">Submit</button>
           <!-- </div> -->
         </div>
 
+      </form>
         <footer>2021 &copy; Mall Guide by ThemeBucket</footer>
       </div>
     </section>

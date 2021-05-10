@@ -1,6 +1,7 @@
 var express = require("express");
 var storeModel = require("../../models/store-model");
 var locationModel = require("../../models/location-model");
+var serviceModel = require("../../models/service-model");
 var router = express.Router();
 
 router.get("/", async function (req, res) {
@@ -78,6 +79,21 @@ router.get("/manage-stores/add-store", async function (req, res) {
   }
 });
 
+
+
+
+
+
+//Services
+
+//get all services
+router.get("/manage-services", async function (req, res) {
+  console.log("[INFO] : Getting all services");
+  const all_services = await serviceModel.find({ is_deleted: false });
+  res.render("../views/pages/mall-owner/manage-services", {
+    all_services: all_services,
+  });
+});
 
 
 module.exports = router;
