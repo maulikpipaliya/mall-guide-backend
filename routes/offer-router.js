@@ -47,16 +47,33 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// //delete a offer
+// router.get("/delete-offer/:id", async (req, res) => {
+//   const { id } = req.params;
+
+//   try {
+//     const deleted = await offerModel.findByIdAndUpdate(id, req.body);
+//     if (!deleted) throw new Error("[ERROR] : Failed to delete");
+//     res.redirect("/so/so-show-offer");
+//     //res.status(200).json(deleted);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// });
+
+
 //delete a offer
-router.delete("/:id", async (req, res) => {
+router.get("/delete-offer/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    res.body.updated_at = new Date();
-    res.body.is_deleted = true;
+    req.body.updated_at = new Date();
+    req.body.is_deleted = true;
     const deleted = await offerModel.findByIdAndUpdate(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
-
+    res.redirect("/so/so-show-offer");
     res.status(200).json(deleted);
   } catch (error) {
     res.status(500).json({
