@@ -19,7 +19,8 @@ router.post("/", async function (req, res) {
     const inserted = await new_service.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert feedback");
     else console.log("[INFO] : Success. Created feedback");
-    res.status(200).json(inserted);
+    // res.status(200).json(inserted);
+    res.redirect("/");
   } catch (error) {
     res.status(500).json({
       message: error.message,
