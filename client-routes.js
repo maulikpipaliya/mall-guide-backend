@@ -28,26 +28,41 @@ router.get("/home", async function (req, res) {
   const all_stores = await storeModel.find({ is_deleted: false });
 
   for (let i = 0; i < all_stores.length; i++) {
-    const locationId = await locationModel.findOne({
-      _id: all_stores[i].location_id,
-    });
-    all_stores[i].block = locationId.block_name;
-    all_stores[i].floor = locationId.floor_number;
+    if (all_stores[i].location_id) {
+      const locationId = await locationModel.findOne({
+        _id: all_stores[i].location_id,
+      });
+      all_stores[i].block = locationId.block_name;
+      all_stores[i].floor = locationId.floor_number;
+    } else {
+      all_stores[i].block = "A";
+      all_stores[i].floor = "1";
+    }
   }
   console.log("[INFO] : Getting all stores");
   // res.json(all_stores);
   console.log("[INFO] : Getting all events");
   const all_events = await eventModel.find({ is_deleted: false });
   const all_offers = await offerModel.find({ is_deleted: false });
-
+  let flag = true;
+  if (req.session.user && req.cookies.user_sid) flag = false;
   res.render("../views/pages/home", {
     all_stores: all_stores,
     events: all_events,
     offers: all_offers,
+    flag: flag,
   });
 });
 
-router.get("/signin", async function (req, res) {
+var sessionChecker = (req, res, next) => {
+  console.log("keshav1111111 + " + req.session.user);
+  if (req.session.user && req.cookies.user_sid) {
+    res.redirect("/");
+  } else {
+    next();
+  }
+};
+router.get("/signin", sessionChecker, async function (req, res) {
   res.render("../views/pages/signin");
 });
 
