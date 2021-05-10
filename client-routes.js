@@ -28,11 +28,16 @@ router.get("/home", async function (req, res) {
   const all_stores = await storeModel.find({ is_deleted: false });
 
   for (let i = 0; i < all_stores.length; i++) {
-    const locationId = await locationModel.findOne({
-      _id: all_stores[i].location_id,
-    });
-    all_stores[i].block = locationId.block_name;
-    all_stores[i].floor = locationId.floor_number;
+    if (all_stores[i].location_id) {
+      const locationId = await locationModel.findOne({
+        _id: all_stores[i].location_id,
+      });
+      all_stores[i].block = locationId.block_name;
+      all_stores[i].floor = locationId.floor_number;
+    } else {
+      all_stores[i].block = "A";
+      all_stores[i].floor = "1";
+    }
   }
   console.log("[INFO] : Getting all stores");
   // res.json(all_stores);

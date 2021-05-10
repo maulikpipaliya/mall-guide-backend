@@ -78,13 +78,15 @@ router.post("/", async (req, res) => {
       if (userid) {
         req.session.user = userid;
         req.session.role = 1;
+        res.redirect("/so");
       }
     } else if (login.userrole == "Mall Owner") {
       // mall owner
       if (login.username == "admin" && login.password == "admin") {
         req.session.userId = "Admin";
         req.session.role = 0;
-        res.status(200).json({ message: "Login Successfull" });
+        res.redirect("/mo");
+        // res.status(200).json({ message: "Login Successfull" });
       } else {
         throw new Error("[ERROR] : User Not Found");
       }
