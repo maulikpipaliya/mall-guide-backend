@@ -15,6 +15,10 @@ router.get("/", async function (req, res) {
   res.render("../views/pages/landing");
 });
 
+router.get("/", async function (req, res) {
+  res.render("../views/pages/addcategory");
+});
+
 var storeModel = require("./models/store-model");
 
 router.get("/home", async function (req, res) {
