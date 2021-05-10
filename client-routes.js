@@ -23,6 +23,7 @@ router.get("/", async function (req, res) {
 // });
 
 var storeModel = require("./models/store-model");
+const storeOwnerModel = require("./models/store-owner-model");
 
 router.get("/home", async function (req, res) {
   const all_stores = await storeModel.find({ is_deleted: false });
@@ -85,6 +86,27 @@ router.get("/mo-dashboard", async function (req, res) {
 
 router.get("/mall-map", async function (req, res) {
   res.render("../views/pages/home-mall-map");
+});
+
+router.get("/store-request", async function (req, res) {
+  res.render("../views/pages/store-request");
+});
+
+router.post("/store-request", async function (req, res) {
+  const newStoreOwner = new storeOwnerModel(req.body);
+  req.body.email = req.body.semail;
+  let newStore = new storeModel(req.body);
+  newStore.route_name = newStore.store_name.split(" ").join("-");
+
+  const locationId = await locationModel.findOne({
+    floor_number: parseInt(req.body.floor),
+    block_name: req.body.block,
+  });
+  newStore.location_id = locationId._id;
+  // res.status(200).json(newStore);
+  newStore.save();
+  newStoreOwner.save();
+  res.redirect("/");
 });
 
 module.exports = router;

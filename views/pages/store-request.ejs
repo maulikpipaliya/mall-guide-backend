@@ -1,93 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="ThemeBucket">
-    <link rel="shortcut icon" href="#" type="image/png">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="ThemeBucket" />
+    <link rel="shortcut icon" href="#" type="image/png" />
 
     <title>Store Registration</title>
 
-    <link href="/non-visitor/css/style.css" rel="stylesheet">
-    <link href="/non-visitor/css/style-responsive.css" rel="stylesheet">
+    <link href="/non-visitor/css/style.css" rel="stylesheet" />
+    <link href="/non-visitor/css/style-responsive.css" rel="stylesheet" />
+  </head>
 
-
-</head>
-
-<body class="login-body">
-
-<div class="container">
-
-    <form class="form-signin" method="POST" action="/">
+  <body class="login-body">
+    <div class="container">
+      <form class="form-signin" method="POST" action="/store-request">
         <div class="form-signin-heading text-center">
-            <h1 class="sign-title text-dark" style="color: black;">Store Registration</h1>
-            <img src="/img/location-pin.svg" alt="" height="100px"/>
+          <h1 class="sign-title text-dark" style="color: black">
+            Store Registration
+          </h1>
+          <img src="/img/location-pin.svg" alt="" height="100px" />
         </div>
-
 
         <div class="login-wrap">
-            <p>Enter your personal details below</p>
-            <input type="text" autofocus="" name="username" placeholder="Username" class="form-control">
-            <input type="text" autofocus="" name="name" placeholder="Store Owner Name" class="form-control">
-            <input type="text" autofocus="" placeholder="Address" name="address" class="form-control">
-            <input type="text" autofocus="" placeholder="Email" name="email" class="form-control">
-            <input type="text" autofocus="" placeholder="Contact" class="form-control">
-            <div class="radios">
-                <label for="radio-01" class="label_radio col-lg-6 col-sm-6">
-                    <input type="radio" checked="" value="1" id="radio-01" name="sample-radio"> Male
-                </label>
-                <label for="radio-02" class="label_radio col-lg-6 col-sm-6">
-                    <input type="radio" value="1" id="radio-02" name="sample-radio"> Female
-                </label>
-            </div>
-
-            <p></p>
-            <p> Enter your store details below</p>
-            <input type="text" autofocus="" name="store_name" placeholder="Store Name"  class="form-control">
-            <input type="text" autofocus="" placeholder="Email" name="email" class="form-control">
-            <input type="text" autofocus="" name="social_handle" placeholder="Social Handle"  class="form-control">
-            <input type="text" autofocus="" name="url" placeholder="Logo Url"  class="form-control">
-            <input type="password" placeholder="Password" name="password" class="form-control">
-            <!-- <input type="password" placeholder="Re-type Password" class="form-control"> -->
-            <select class="form-control input-sm m-bot15" style="font-size: 12px;background: #eaeaec">
-                <option>Floor 1</option>
-                <option>Floor 2</option>
-                <option>Floor 3</option>
-            </select>
-            <select class="form-control input-sm m-bot15" style="font-size: 12px;background: #eaeaec">
-                <option>Block A</option>
-                <option>Block B</option>
-                <option>Block C</option>
-            </select>
-            <label class="checkbox">
-                <input type="checkbox" value="agree this condition"> I agree to the Terms of Service and Privacy Policy
+          <p>Enter your personal details below</p>
+          <input
+            type="text"
+            autofocus=""
+            name="username"
+            placeholder="Username"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            name="name"
+            placeholder="Store Owner Name"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            placeholder="Address"
+            name="address"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            placeholder="Email"
+            name="email"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            placeholder="Contact"
+            name="contact"
+            class="form-control"
+          />
+          <div class="radios">
+            <label for="radio-01" class="label_radio col-lg-6 col-sm-6">
+              <input
+                type="radio"
+                checked=""
+                value="1"
+                id="radio-01"
+                name="sample-radio"
+              />
+              Male
             </label>
-            <button type="submit" class="btn btn-lg btn-login btn-block">
-                <i class="fa fa-check"></i>
-            </button>
+            <label for="radio-02" class="label_radio col-lg-6 col-sm-6">
+              <input type="radio" value="1" id="radio-02" name="sample-radio" />
+              Female
+            </label>
+          </div>
 
-            <div class="registration">
-                Already Registered.
-                <a href="#" class="">
-                    Login
-                </a>
-            </div>
+          <p></p>
+          <p>Enter your store details below</p>
+          <input
+            type="text"
+            autofocus=""
+            name="store_name"
+            placeholder="Store Name"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            placeholder="Email"
+            name="semail"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            name="social_handle"
+            placeholder="Social Handle"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            name="url"
+            placeholder="Logo Url"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            name="url1"
+            placeholder="Showroom Url1"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            name="url2"
+            placeholder="Showroom Url2"
+            class="form-control"
+          />
+          <input
+            type="text"
+            autofocus=""
+            name="url3"
+            placeholder="Showroom Url3"
+            class="form-control"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            class="form-control"
+          />
+          <!-- <input type="password" placeholder="Re-type Password" class="form-control"> -->
+          <select
+            class="form-control input-sm m-bot15"
+            style="font-size: 12px; background: #eaeaec"
+            name="floor"
+          >
+            <option value="1">Floor 1</option>
+            <option value="2">Floor 2</option>
+            <option value="3">Floor 3</option>
+          </select>
+          <select
+            class="form-control input-sm m-bot15"
+            style="font-size: 12px; background: #eaeaec"
+            name="block"
+          >
+            <option value="A">Block A</option>
+            <option value="B">Block B</option>
+            <option value="C">Block C</option>
+          </select>
+          <label class="checkbox">
+            <input type="checkbox" value="agree this condition" /> I agree to
+            the Terms of Service and Privacy Policy
+          </label>
+          <button type="submit" class="btn btn-lg btn-login btn-block">
+            <i class="fa fa-check"></i>
+          </button>
 
+          <div class="registration">
+            Already Registered.
+            <a href="#" class=""> Login </a>
+          </div>
         </div>
+      </form>
+    </div>
 
-    </form>
+    <!-- Placed js at the end of the document so the pages load faster -->
 
-</div>
-
-
-
-<!-- Placed js at the end of the document so the pages load faster -->
-
-<!-- Placed js at the end of the document so the pages load faster -->
-<script src="/non-visitor/js/jquery-1.10.2.min.js"></script>
-<script src="/non-visitor/js/bootstrap.min.js"></script>
-<script src="/non-visitor/js/modernizr.min.js"></script>
-
-</body>
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="/non-visitor/js/jquery-1.10.2.min.js"></script>
+    <script src="/non-visitor/js/bootstrap.min.js"></script>
+    <script src="/non-visitor/js/modernizr.min.js"></script>
+  </body>
 </html>

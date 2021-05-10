@@ -71,7 +71,6 @@ var contactus_router = require("./routes/contactus-router");
 var aboutus_router = require("./routes/aboutus-router");
 var store_request = require("./routes/store-owner/store-owner-routes");
 
-
 //Use the Router on the sub route /movies
 app.use("/stores", store_router);
 app.use("/events", event_router);
@@ -91,7 +90,7 @@ app.use("/sendstorerequest", store_request_router);
 app.use("/storerequest", store_request_mall_owner_router);
 app.use("/contactus", contactus_router);
 app.use("/aboutus", aboutus_router);
-app.use("/", store_request);
+app.use("/so", store_request);
 
 // app.use("/landing", landing_router);
 
