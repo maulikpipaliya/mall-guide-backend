@@ -25,8 +25,8 @@ router.get("/so-store-request", async function (req, res) {
 
 router.get("/so-login", async function (req, res) {
   res.render("../views/pages/store-owner/so-login");
+});
 
-  
 router.get("/so-show-rating", async function (req, res) {
   const all_rating = await ratingModel.find();
   for(let i =0;i<all_rating.length;i++)
