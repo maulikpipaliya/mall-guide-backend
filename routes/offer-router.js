@@ -9,7 +9,7 @@ router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all offers");
   const all_offers = await offerModel.find({ is_deleted: false });
   // res.json(all_offers);
-  res.render("../views/pages/offer-page");
+  res.render("../views/pages/offer-page",{all_offer:all_offer});
 });
 
 //create a new offer
