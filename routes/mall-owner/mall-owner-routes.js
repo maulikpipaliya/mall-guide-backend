@@ -43,6 +43,8 @@ router.get("/manage-stores", async function (req, res) {
   });
 
   all_services = {};
+  
+  
   res.render("../views/pages/mall-owner/manage-services", {
     all_services: all_services,
   });
@@ -97,9 +99,57 @@ router.get("/manage-stores/add-store", async function (req, res) {
 router.get("/manage-services", async function (req, res) {
   console.log("[INFO] : Getting all services");
   const all_services = await serviceModel.find({ is_deleted: false });
+
+  for (let i = 0; i < all_services.length; i++) {
+    if (all_services[i].location_id) {
+      const locationId = await locationModel.findOne({
+        _id: all_services[i].location_id,
+      });
+      all_services[i].block = locationId.block_name;
+      all_services[i].floor = locationId.floor_number;
+    } else {
+      all_services[i].block = "A";
+      all_services[i].floor = "1";
+    }
+  }
+
   res.render("../views/pages/mall-owner/manage-services", {
     all_services: all_services,
   });
+});
+
+
+//update a service
+router.get("/manage-services/edit-service/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    // console.log(name);
+    const serviceObj = await serviceModel.findOne({ _id: id });
+    if (!serviceObj) throw new Error("[ERROR] : Failed to get a store " + name);
+    const serviceDetails = { ...serviceObj._doc, ...req.body };
+    res.render("../views/pages/mall-owner/edit-service", {
+      serviceDetails: serviceDetails,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+
+
+router.get("/manage-services/add-service", async function (req, res) {
+  // let newStore = new storeModel(req.body);
+  try {
+    res.render("../views/pages/mall-owner/add-service");
+    
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 });
 
 

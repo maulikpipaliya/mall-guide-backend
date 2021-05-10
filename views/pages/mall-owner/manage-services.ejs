@@ -45,7 +45,7 @@
         </div>
         <!-- page heading end-->
 
-        
+        <%= console.log(all_services); %>
         <!--body wrapper start-->
         <div class="wrapper">
           <div class="row">
@@ -62,12 +62,13 @@
                   <div class="adv-table editable-table">
                     <div class="clearfix">
                       <div class="btn-group">
-                        <button
-                          id="editable-sample_new"
+                        <a
+                          id=""
                           class="btn btn-primary"
+                          href="manage-services/add-service"
                         >
                           Add New <i class="fa fa-plus"></i>
-                        </button>
+                        </a>
                       </div>
                     </div>
                     <div class="space15"></div>
@@ -78,23 +79,38 @@
                       <thead>
                         <tr>
                           <th>Service Name</th>
-                          <th>Description Name</th>
-     
+                          <th>Description</th>
+                          <th>Block</th>
+                          <th>Floor</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>
                       </thead>
                       <tbody>
-
+                        <% if(all_services.length!=0) { for(var i=0; i <
+                        all_services.length; i++) { %>
                         <tr class="">
-                          <td>hahas</td>
-                          <td>hahah</td>
-                        <td><a class="edit" href="javascript:;">Edit</a></td>
+                          <td><%= all_services[i].service_name %></td>
+                          <td><%= all_services[i].description %></td>
+                          <td><%= all_services[i].block %></td>
+                          <td><%= all_services[i].floor %></td>
+                      
                           <td>
-                            <a class="delete" href="javascript:;">Delete</a>
+                            <a
+                              class=""
+                              href="manage-services/edit-service/<%= all_services[i]._id %>"
+                              >Edit</a
+                            >
+                          </td>
+                          <td>
+                            <a
+                              class=""
+                              href="/services/delete-service/<%= all_services[i]._id %>"
+                              >Delete</a
+                            >
                           </td>
                         </tr>
-                       
+                        <% } } %>
                       </tbody>
                     </table>
                   </div>

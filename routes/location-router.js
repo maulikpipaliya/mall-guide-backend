@@ -43,7 +43,7 @@ router.put("/:id", async (req, res) => {
     res.status(500).json({
       message: error.message,
     });
-    consoloe.log(error);
+    console.log(error);
   }
 });
 

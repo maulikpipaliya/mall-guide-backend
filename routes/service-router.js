@@ -17,10 +17,16 @@ router.post("/", async function (req, res) {
   const new_service = new serviceModel(req.body);
   try {
     console.log("[INFO] : Adding new service");
+    const locationId = await locationModel.findOne({
+      floor_number: parseInt(req.body.floor),
+      block_name: req.body.block,
+    });
+    new_service.location_id = locationId._id;
     const inserted = await new_service.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert service");
     else console.log("[INFO] : Success. Created service");
-    res.status(200).json(inserted);
+    
+    res.redirect("/mo/manage-services");
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -29,7 +35,7 @@ router.post("/", async function (req, res) {
 });
 
 //update a service
-router.put("/:id", async (req, res) => {
+router.post("/edit/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -39,17 +45,18 @@ router.put("/:id", async (req, res) => {
     // if (!response) throw new Error("[ERROR] : --Failed to update");
     const updated = { ...response._doc, ...req.body };
     console.log("[INFO] : Success. Updated Service");
-    res.status(200).json(updated);
+    // res.status(200).json(updated);
+    res.redirect("/mo/manage-services");
   } catch (error) {
     res.status(500).json({
       message: error.message,
     });
-    consoloe.log(error);
+    console.log(error);
   }
 });
 
 //delete a service
-router.delete("/:id", async (req, res) => {
+router.get("/delete-service/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -59,7 +66,7 @@ router.delete("/:id", async (req, res) => {
     const deleted = await serviceModel.findByIdAndUpdate(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete service");
 
-    res.status(200).json(deleted);
+    res.redirect("/mo/manage-services");
   } catch (error) {
     res.status(500).json({
       message: error.message,
