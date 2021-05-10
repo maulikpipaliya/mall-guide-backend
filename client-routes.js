@@ -7,9 +7,9 @@ router.get("/landing", async function (req, res) {
   res.render("../views/pages/landing");
 });
 
-router.get("/home", async function (req, res) {
-  res.render("../views/pages/home");
-});
+// router.get("/home", async function (req, res) {
+//   res.render("../views/pages/home");
+// });
 
 router.get("/", async function (req, res) {
   res.render("../views/pages/landing");
@@ -28,9 +28,8 @@ router.get("/home", async function (req, res) {
     all_stores[i].floor = locationId.floor_number;
   }
   console.log("[INFO] : Getting all stores");
-  //   res.json(all_stores);
-
-  //   console.log("[INFO] : Getting all events");
+    // res.json(all_stores);
+    console.log("[INFO] : Getting all events");
   const all_events = await eventModel.find({ is_deleted: false });
 
   res.render("../views/pages/home", {
