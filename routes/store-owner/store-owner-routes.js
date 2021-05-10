@@ -20,6 +20,11 @@ router.get("/so-edit-category", async function (req, res) {
   res.render("../views/pages/store-owner/edit-category");
 });
 
+router.get("/so-show-category", async function (req, res) {
+  const all_offers = await offerModel.find({ is_deleted: false });
+  res.render("../views/pages/store-owner/show-category",{all_offers:all_offers});
+});
+
 router.get("/so-add-offer", async function (req, res) {
   res.render("../views/pages/store-owner/add-offer");
 });
