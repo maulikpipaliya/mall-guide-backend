@@ -42,7 +42,7 @@ app.use(
 app.use((req, res, next) => {
   // console.log("keshav");
   if (req.cookies.user_sid && !req.session.user) {
-    console.log("In If keshav");
+    // console.log("In If keshav");
     res.clearCookie("user_sid");
   }
   next();
