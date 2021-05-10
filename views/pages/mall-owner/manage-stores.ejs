@@ -447,29 +447,6 @@
     <script>
       jQuery(document).ready(function () {
         EditableTable.init();
-        $("#editable-sample a.edit").live("click", function (e) {
-          e.preventDefault();
-          alert("Clicked");
-          /* Get the row as a parent of the link that was clicked on */
-          var nRow = $(this).parents("tr")[0];
-
-          if (nEditing !== null && nEditing != nRow) {
-            /* Currently editing - but not this row - restore the old before continuing to edit mode */
-            restoreRow(oTable, nEditing);
-            editRow(oTable, nRow);
-            nEditing = nRow;
-          } else if (nEditing == nRow && this.innerHTML == "Save") {
-            /* Editing this row and want to save it */
-            saveRow(oTable, nEditing);
-            nEditing = null;
-            alert("Kehsa");
-            // alert("Updated! Do not forget to do some ajax to sync with backend :)");
-          } else {
-            /* No edit in progress - let's start one */
-            editRow(oTable, nRow);
-            nEditing = nRow;
-          }
-        });
       });
     </script>
   </body>
