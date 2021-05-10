@@ -43,6 +43,10 @@ router.get("/signin", async function (req, res) {
   res.render("../views/pages/signin");
 });
 
+router.get("/register-offers", async function (req, res) {
+  res.render("../views/pages/offer-page");
+});
+
 router.get("/dine", async function (req, res) {
   res.render("../views/pages/dine");
 });

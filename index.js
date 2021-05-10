@@ -76,7 +76,7 @@ app.use("/store_owner", store_owner_router);
 app.use("/feedbacks", feedback_router);
 app.use("/locations", location_router);
 app.use("/mall_owner", mall_owner_router);
-app.use("/offers", offer_router);
+app.use("/offer", offer_router);
 app.use("/services", services_router);
 app.use("/categories", categories_router);
 app.use("/store-2-categoires", store_2_categories_router);
