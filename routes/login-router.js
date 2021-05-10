@@ -7,9 +7,9 @@ var storeOwnerModel = require("../models/store-owner-model");
 var visitsModel = require("../models/visits-model");
 
 var sessionChecker = (req, res, next) => {
-  console.log("keshav1111111 + " + req.session.userId);
-  if (req.session.user && req.cookies.user_sid) {
-    res.redirect("/login");
+  // console.log("keshav1111111 + " + req.session.user);
+  if (req.session.user && req.session.role == 2 && req.cookies.user_sid) {
+    res.redirect("/");
   } else {
     next();
   }
@@ -52,7 +52,7 @@ const validateuser = async (model, login) => {
   else return null;
 };
 
-router.post("/", async (req, res) => {
+router.post("/", sessionChecker, async (req, res) => {
   const login = req.body;
   // console.log(login);
   try {
@@ -83,7 +83,7 @@ router.post("/", async (req, res) => {
     } else if (login.userrole == "Mall Owner") {
       // mall owner
       if (login.username == "admin" && login.password == "admin") {
-        req.session.userId = "Admin";
+        req.session.user = "Admin";
         req.session.role = 0;
         res.redirect("/mo");
         // res.status(200).json({ message: "Login Successfull" });

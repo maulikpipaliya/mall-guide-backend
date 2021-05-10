@@ -11,7 +11,7 @@ var app = express();
 // Mihir
 
 // set morgan to log info about our requests for development use.
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 app.use(express.static("./assets"));
 // set the view engine to ejs
 app.set("view engine", "ejs");
@@ -42,6 +42,7 @@ app.use(
 app.use((req, res, next) => {
   // console.log("keshav");
   if (req.cookies.user_sid && !req.session.user) {
+    // console.log("In If keshav");
     res.clearCookie("user_sid");
   }
   next();
