@@ -41,7 +41,8 @@ router.post("/:id", async (req, res) => {
     if (!response) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response._doc, ...req.body };
     console.log("[INFO] : Success. Updated Data");
-    res.status(200).json(updated);
+    // res.status(200).json(updated);
+    res.redirect("/so/so-show-category");
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -59,7 +60,7 @@ router.get("/delete-category/:id", async (req, res) => {
     const deleted = await categoryModel.findByIdAndUpdate(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
-    res.status(200).json(deleted);
+    res.redirect("/so/so-show-category");
   } catch (error) {
     res.status(500).json({
       message: error.message,
