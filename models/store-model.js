@@ -23,6 +23,18 @@ const storeSchema = new Schema({
     type: String,
     requrired: true,
   },
+  url1: {
+    type: String,
+    requrired: true,
+  },
+  url2: {
+    type: String,
+    requrired: true,
+  },
+  url3: {
+    type: String,
+    requrired: true,
+  },
   is_deleted: {
     type: Boolean,
     default: false,

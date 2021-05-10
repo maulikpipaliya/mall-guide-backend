@@ -41,9 +41,12 @@ router.put("/:name", async (req, res) => {
   const { name } = req.params;
 
   try {
-    const response = await storeModel.find({ route_name: name });
-    response.updated_at = new Date();
-    const response1 = await storeModel.findByIdAndUpdate(response.id, req.body);
+    const response = await storeModel.findOne({ route_name: name });
+    req.body.updated_at = new Date();
+    const response1 = await storeModel.findByIdAndUpdate(
+      response._id,
+      req.body
+    );
     if (!response1) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response1._doc, ...req.body };
     console.log("[INFO] : Success. Updated Data");

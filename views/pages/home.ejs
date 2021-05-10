@@ -2,11 +2,21 @@
 <html lang="en">
   <head>
     <%- include('../partials/head'); %>
-  </head>
+</head>
 
-  <body id="page-top">
-    <%- include('../partials/header'); %> <%- include('./home-events'); %> <%-
-    include('./home-stores'); %> <%- include('./home-offers'); %> <%-
-    include('../partials/footer'); %>
-  </body>
+<body id="page-top">
+
+    <%- include('../partials/header'); %>
+        <%- include('./home-events'); %>
+            <%- include('./home-stores'); %>
+                <%- include('./home-about'); %>
+                <%- include('./home-offers'); %>
+
+
+
+                <%- include('../partials/footer'); %>
+
+
+</body>
+
 </html>
