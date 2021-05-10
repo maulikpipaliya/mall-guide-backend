@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/store-page.css" />
-    <title><%= storeDetails.store_name %></title>
+    <title><%= storeDetails.store_name %> </title>
 </head>
 <body>
 </html>
@@ -19,9 +19,15 @@
                 <h2><b>Daily from 10:00 AM Till 09:00 PM</b></h2>
             </div>
             <div class="grid-item item2">
-                <h1style="font-size: 15px;><b><%= storeDetails.store_name %></b></h1>
+                <h1style="font-size: 15px;><b><%= storeDetails.store_name %>- <%= storeDetails._id %></b></h1>
             <hr size=" 4 " color="grey ">
-            <h4 style="font-size: 20px; ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, laboriosam. Expedita illo sint corrupti nihil modi asperiores temporibus accusantium eligendi dolorum non eius maiores dolorem repudiandae, aspernatur dolore eos nam!
+            <h4 style="font-size: 20px; ">
+                Categories:<br><br>
+                
+      <%for(var i=0; i < storeDetails.categories.length;
+        i++) { %>
+                <%= i+1 %>. <%= storeDetails.categories[i].name %> <br><br>
+            <% } %>
             </h4>
         </div>
         <div class="grid-item item3 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, vero expedita. Voluptatum debitis nostrum explicabo quo maiores, dolores animi qui nisi dolorem consectetur? Accusamus consectetur, delectus vero doloribus provident ut.</div>

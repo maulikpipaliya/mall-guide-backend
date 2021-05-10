@@ -25,13 +25,13 @@ router.post("/", async function (req, res) {
   let newStore = new storeModel(req.body);
   try {
     newStore.route_name = newStore.store_name.split(" ").join("-");
-    if (req.body.block) {
-      const locationId = await locationModel.findOne({
-        floor_number: parseInt(req.body.floor),
-        block_name: req.body.block,
-      });
-      newStore.location_id = locationId._id;
-    }
+    // if (req.body.block) {
+    //   const locationId = await locationModel.findOne({
+    //     floor_number: parseInt(req.body.floor),
+    //     block_name: req.body.block,
+    //   });
+    //   newStore.location_id = locationId._id;
+    // }
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
@@ -124,7 +124,10 @@ router.get("/:name/categories", async (req, res) => {
       // console.log(categoryObj);
       store2CategoriesDetails.push(categoryObj);
     }
-    res.status(200).json(store2CategoriesDetails);
+    console.log(storeObj._id);
+    storeObj.categories = store2CategoriesDetails;
+    res.render("../views/pages/store-page", { storeDetails: storeObj });
+    // res.status(200).json(store2CategoriesDetails);
   } catch (error) {
     res.status(500).json({
       message: error.message,
