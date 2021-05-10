@@ -16,7 +16,7 @@ router.get("/landing", async function (req, res) {
 //user is always redirected to this page when not logged in. NOT LANDING
 //LANDING PAGE IS ACCESSED ONLY THROUGH QR CODE.
 router.get("/", async function (req, res) {
-  res.render("../views/pages/home");
+  res.redirect("/home");
 });
 
 var storeModel = require("./models/store-model");
