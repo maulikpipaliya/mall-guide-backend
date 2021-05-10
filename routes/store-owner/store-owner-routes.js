@@ -19,4 +19,5 @@ router.get("/so-add-offer", async function (req, res) {
   res.render("../views/pages/store-owner/add-offer");
 });
 
+
 module.exports = router;
