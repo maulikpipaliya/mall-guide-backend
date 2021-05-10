@@ -16,7 +16,7 @@
             <li class="active"> Form Validation </li>
         </ul> -->
         </div>
-        <form action="/categories" method="post">
+        <form action="/categories/<%= all_category._id%>" method="post">
         <section class="panel">
           <div class="panel-body">
             <form role="form" class="form-horizontal adminex-form">
@@ -28,6 +28,7 @@
                     name="name"
                     placeholder=""
                     id="f-name"
+                    value="<%= all_category.name%>"
                     class="form-control"
                   />
                   <!-- <p class="help-block">Successfully done</p> -->
@@ -38,10 +39,12 @@
                 <div class="col-lg-10" style="padding-top: 10px;">
                   <!-- <input type="text" placeholder="" id="l-name" class="form-control">
                           <p class="help-block">Aha you gave a wrong info</p> -->
-                  <select name="parent_category_id" style="width: 100%; height: 35px">
-                    <option>Option 1</option>
-                    <option>Option 1</option>
-                    <option>Option 1</option>
+                  <select name="parent_category_id"  style="width: 100%; height: 35px">
+                    <% if(all_categories.length!=0) { for(var i=0; i < all_categories.length; i++) {
+                      %>
+                    <option value="<%= all_categories[i]._id %>"><%= all_categories[i].name %></option>
+                    <% } } %>
+              
                   </select>
                 </div>
               </div>

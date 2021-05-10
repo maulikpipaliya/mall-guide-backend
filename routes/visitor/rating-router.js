@@ -31,7 +31,7 @@ router.post("/", async function (req, res) {
 //   const { id } = req.params;
 
 //   try {
-//     res.body.updated_at = new Date();
+//     req.body.updated_at = new Date();
 //     const response = await rateModel.findByIdAndUpdate(id, req.body);
 //     if (!response) throw new Error("[ERROR] : Failed to update");
 //     const updated = { ...response._doc, ...req.body };
@@ -49,8 +49,8 @@ router.post("/", async function (req, res) {
 //   const { id } = req.params;
 
 //   try {
-//     res.body.updated_at = new Date();
-//     res.body.is_deleted = true;
+//     req.body.updated_at = new Date();
+//     req.body.is_deleted = true;
 //     const deleted = await rateModel.findByIdAndUpdate(id, req.body);
 //     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
