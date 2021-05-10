@@ -44,15 +44,25 @@ router.get("/home", async function (req, res) {
   console.log("[INFO] : Getting all events");
   const all_events = await eventModel.find({ is_deleted: false });
   const all_offers = await offerModel.find({ is_deleted: false });
-
+  let flag = true;
+  if (req.session.user && req.cookies.user_sid) flag = false;
   res.render("../views/pages/home", {
     all_stores: all_stores,
     events: all_events,
     offers: all_offers,
+    flag: flag,
   });
 });
 
-router.get("/signin", async function (req, res) {
+var sessionChecker = (req, res, next) => {
+  console.log("keshav1111111 + " + req.session.user);
+  if (req.session.user && req.cookies.user_sid) {
+    res.redirect("/");
+  } else {
+    next();
+  }
+};
+router.get("/signin", sessionChecker, async function (req, res) {
   res.render("../views/pages/signin");
 });
 
