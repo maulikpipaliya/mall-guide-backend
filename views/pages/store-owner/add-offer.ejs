@@ -16,35 +16,35 @@
                     <section class="panel">
                         <div class="panel-body">
                             <div class=" form">
-                                <form class="cmxform form-horizontal adminex-form" id="commentForm" method="get" action="">
+                                <form class="cmxform form-horizontal adminex-form" id="commentForm" method="POST" action="/offer">
                                     <div class="form-group ">
                                         <label for="oname" class="control-label col-lg-2">Offer Name</label>
                                         <div class="col-lg-10">
-                                            <input class=" form-control" id="oname" name="offername" minlength="2" type="text" required />
+                                            <input class=" form-control" id="oname" name="offer_name" minlength="2" type="text" required />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="ooffer" class="control-label col-lg-2">Offer by</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="ooffer" type="text" name="offerby" required />
+                                            <input class="form-control " id="ooffer" type="text" name="offer_by" required />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="curl" class="control-label col-lg-2">Start Date</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="sdate" type="date" name="stratdate" />
+                                            <input class="form-control " id="sdate" type="date" name="start_date" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="ccomment" class="control-label col-lg-2">End Date</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="edate" type="date" name="enddate" />
+                                            <input class="form-control " id="edate" type="date" name="end_date" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="ccomment" class="control-label col-lg-2">Enter URL</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="addurl" type="text" name="enterurl" />
+                                            <input class="form-control " id="addurl" type="text" name="url" />
                                         </div>
                                     </div>
                                     <div class="form-group">
