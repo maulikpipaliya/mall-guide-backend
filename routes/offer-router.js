@@ -20,7 +20,8 @@ router.post("/", async function (req, res) {
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
     //res.status(200).json(inserted);
-    res.redirect("/home");
+
+    res.redirect("/so/so-show-offer");
   } catch (error) {
     res.status(500).json({
       message: error.message,
