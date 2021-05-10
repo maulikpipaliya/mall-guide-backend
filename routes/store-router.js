@@ -65,7 +65,7 @@ router.post("/edit/:name", async (req, res) => {
 });
 
 //delete a store
-router.delete("/:name", async (req, res) => {
+router.get("/delete-store/:name", async (req, res) => {
   const { name } = req.params;
 
   try {
@@ -75,8 +75,8 @@ router.delete("/:name", async (req, res) => {
     // console.log(response);
     const deleted = await storeModel.findByIdAndUpdate(response.id, response);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
-
-    res.status(200).json(deleted);
+    res.redirect("/mo/manage-stores");
+    // res.status(200).json(deleted);
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -184,5 +184,8 @@ router.get("/:block/:floor", async (req, res) => {
     });
   }
 });
+
+
+
 
 module.exports = router;
