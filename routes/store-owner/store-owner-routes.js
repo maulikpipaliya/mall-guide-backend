@@ -21,6 +21,10 @@ router.get("/so-store-request", async function (req, res) {
   res.render("../views/pages/store-owner/store-request");
 });
 
+router.get("/so-login", async function (req, res) {
+  res.render("../views/pages/store-owner/so-login");
+});
+
 router.get("/so-add-category", async function (req, res) {
   const all_categories = await categoryModel.find({ is_deleted: false });
 
