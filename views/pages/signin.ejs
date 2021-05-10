@@ -36,22 +36,22 @@
       </div>
       <div class="user signupBx">
         <div class="formBx">
-          <form action="" onsubmit="return false;">
+          <form action="/registration" method="POST">
             <h2>Create an account</h2>
-            <input type="text" name="" placeholder="Name" required />
-            <input type="text" name="" placeholder="Username" />
-            <input type="text" name="" placeholder="Age" />
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="age" placeholder="Age" />
             <label> Gender </label>  
-            <select>  
+            <select name="gender">  
             <option value = "Male"> Male    
             </option>  
             <option value = "Female"> Female   
             </option>  
-            <input type="email" name="" placeholder="Email Address" />
-            <input type="text" name="" placeholder="Contact Number" />
-            <input type="password" name="" placeholder="Create Password" />
+            <input type="email" name="email" placeholder="Email Address" />
+            <input type="text" name="contact" placeholder="Contact Number" />
+            <input type="password" name="password" placeholder="Create Password" />
             <input type="password" name="" placeholder="Confirm Password" />
-            <input type="submit" name="" value="Sign Up" />
+            <input type="submit" value="Sign Up" />
             <p class="signup">
               Already have an account ?
               <a href="#" onclick="toggleForm();">Sign in.</a>
