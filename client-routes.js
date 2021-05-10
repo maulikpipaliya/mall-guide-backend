@@ -12,16 +12,15 @@ router.get("/landing", async function (req, res) {
 //   res.render("../views/pages/home");
 // });
 
-
 //user is always redirected to this page when not logged in. NOT LANDING
 //LANDING PAGE IS ACCESSED ONLY THROUGH QR CODE.
 router.get("/", async function (req, res) {
   res.redirect("/home");
 });
 
-router.get("/", async function (req, res) {
-  res.render("../views/pages/addcategory");
-});
+// router.get("/", async function (req, res) {
+//   res.render("../views/pages/addcategory");
+// });
 
 var storeModel = require("./models/store-model");
 
@@ -36,15 +35,15 @@ router.get("/home", async function (req, res) {
     all_stores[i].floor = locationId.floor_number;
   }
   console.log("[INFO] : Getting all stores");
-    // res.json(all_stores);
-    console.log("[INFO] : Getting all events");
+  // res.json(all_stores);
+  console.log("[INFO] : Getting all events");
   const all_events = await eventModel.find({ is_deleted: false });
-  const all_offers = await offerModel.find({is_deleted : false});
+  const all_offers = await offerModel.find({ is_deleted: false });
 
   res.render("../views/pages/home", {
     all_stores: all_stores,
     events: all_events,
-    offers: all_offers
+    offers: all_offers,
   });
 });
 
