@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="css/addcategory.css" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="form_wrapper">
+      <div class="form_container">
+        <div class="title_container">
+          <h2>Add Category</h2>
+        </div>
+        <div class="row clearfix">
+          <div class="">
+            <form method="post" action="/categories">
+              <div class="input_field">
+                <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Category Name"
+                  required
+                />
+              </div>
+              <div>
+                <label>Select Category</label>
+                <select name="parent_category_id" class="formbox">
+                    <% if(all_categories.length!=0) { for(var i=0; i < all_categories.length; i++) {
+                        %>
+                  <option value="<%= all_categories[i]._id %>"><%= all_categories[i].name %></option>
+                  <% } } %>
+                </select>
+              </div>
+              <input
+                class="eventregisterd"
+                type="submit"
+                onclick="addCategory"
+                value="Add"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function registerEvent(e) {
+      e.preventDefault();
+      console.log($(form).serializeArray());
+    }
+  </script>
+</html>
