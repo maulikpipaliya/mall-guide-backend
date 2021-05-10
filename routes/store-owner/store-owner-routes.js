@@ -23,4 +23,8 @@ router.get("/so-show-offer", async function (req, res) {
   res.render("../views/pages/store-owner/show-offer");
 });
 
+router.get("/so-store-ratings", async function (req, res) {
+  res.render("../views/pages/store-owner/store-ratings");
+});
+
 module.exports = router;

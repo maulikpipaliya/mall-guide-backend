@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta
+      name="keywords"
+      content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="ThemeBucket" />
+    <link rel="shortcut icon" href="#" type="image/png" />
+
+    <title>Mall Guide</title>
+
+    <!--icheck-->
+    <link
+      href="/non-visitor/js/iCheck/skins/minimal/minimal.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/non-visitor/js/iCheck/skins/square/square.css"
+      rel="stylesheet"
+    />
+    <link href="/non-visitor/js/iCheck/skins/square/red.css" rel="stylesheet" />
+    <link
+      href="/non-visitor/js/iCheck/skins/square/blue.css"
+      rel="stylesheet"
+    />
+
+    <!--dashboard calendar-->
+    <link href="/non-visitor/css/clndr.css" rel="stylesheet" />
+
+    <!--common-->
+    <link href="/non-visitor/css/style.css" rel="stylesheet" />
+    <link href="/non-visitor/css/style-responsive.css" rel="stylesheet" />
+    <link href="/non-visitor/css/so-store-ratings.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/non-visitor/js/html5shiv.js"></script>
+      <script src="/non-visitor/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <section>
+      <%- include('./partials/sidebar'); %>
+      <div class="main-content">
+        <%- include('./partials/header'); %>
+        <div class="page-heading">
+          <h3>Store Ratings</h3>
+        </div>
+
+        <section class="rating-widget">
+          <!-- Rating Stars Box -->
+          <div class="rating-stars text-center">
+            <ul id="stars">
+              <li class="star" title="Poor" data-value="1">
+                <i class="fa fa-star fa-fw"></i>
+              </li>
+              <li class="star" title="Fair" data-value="2">
+                <i class="fa fa-star fa-fw"></i>
+              </li>
+              <li class="star" title="Good" data-value="3">
+                <i class="fa fa-star fa-fw"></i>
+              </li>
+              <li class="star" title="Excellent" data-value="4">
+                <i class="fa fa-star fa-fw"></i>
+              </li>
+              <li class="star" title="WOW!!!" data-value="5">
+                <i class="fa fa-star fa-fw"></i>
+              </li>
+            </ul>
+          </div>
+
+          <div class="success-box">
+            <div class="clearfix"></div>
+            <img
+              alt="tick image"
+              width="32"
+              src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MjYuNjY3IDQyNi42NjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyNi42NjcgNDI2LjY2NzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiM2QUMyNTk7IiBkPSJNMjEzLjMzMywwQzk1LjUxOCwwLDAsOTUuNTE0LDAsMjEzLjMzM3M5NS41MTgsMjEzLjMzMywyMTMuMzMzLDIxMy4zMzMgIGMxMTcuODI4LDAsMjEzLjMzMy05NS41MTQsMjEzLjMzMy0yMTMuMzMzUzMzMS4xNTcsMCwyMTMuMzMzLDB6IE0xNzQuMTk5LDMyMi45MThsLTkzLjkzNS05My45MzFsMzEuMzA5LTMxLjMwOWw2Mi42MjYsNjIuNjIyICBsMTQwLjg5NC0xNDAuODk4bDMxLjMwOSwzMS4zMDlMMTc0LjE5OSwzMjIuOTE4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"
+            />
+            <div class="text-message"></div>
+            <div class="clearfix"></div>
+          </div>
+        </section>
+
+        <footer>2021 &copy; Mall Guide by ThemeBucket</footer>
+      </div>
+    </section>
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script src="js/validation-init.js"></script>
+
+    <!--common scripts for all pages-->
+    <script src="js/scripts.js"></script>
+    <script src="/non-visitor/js/so-store-ratings.js"></script>
+  </body>
+</html>
