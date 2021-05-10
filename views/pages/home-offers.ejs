@@ -24,11 +24,14 @@
               <%= offers[i].offer_name %>
             </div>
             <div class="portfolio-caption-subheading text-muted">
-              Start Date = <%=
-              offers[i].start_date.getDate()%>-<%=offers[i].start_date.getMonth()%>-<%=offers[i].start_date.getFullYear()%>
-              <br />Ends Date = <%=
-              offers[i].end_date.getDate()%>-<%=offers[i].end_date.getMonth()%>-<%=offers[i].end_date.getFullYear()
-              %>
+              Offer By = <%= offers[i].offer_by%> <br />
+              Start Date = <%= offers[i].start_date.getDate()%> -
+              <%=offers[i].start_date.getMonth()%> -
+              <%=offers[i].start_date.getFullYear()%>
+              <br />
+              Ends Date = <%= offers[i].end_date.getDate()%> -
+              <%=offers[i].end_date.getMonth()%> -
+              <%=offers[i].end_date.getFullYear() %>
             </div>
           </div>
         </div>
