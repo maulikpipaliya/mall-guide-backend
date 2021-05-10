@@ -7,9 +7,9 @@ var storeOwnerModel = require("../models/store-owner-model");
 var visitsModel = require("../models/visits-model");
 
 var sessionChecker = (req, res, next) => {
-  console.log("keshav1111111 + " + req.session.userId);
+  console.log("keshav1111111 + " + req.session.user);
   if (req.session.user && req.cookies.user_sid) {
-    res.redirect("/login");
+    res.redirect("/");
   } else {
     next();
   }
@@ -52,7 +52,7 @@ const validateuser = async (model, login) => {
   else return null;
 };
 
-router.post("/", async (req, res) => {
+router.post("/", sessionChecker, async (req, res) => {
   const login = req.body;
   // console.log(login);
   try {
