@@ -21,7 +21,7 @@
       <i class="fas fa-bars ml-1"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav text-uppercase ml-auto" >
+      <ul class="navbar-nav text-uppercase ml-auto">
         <!-- <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#page-top">HOME</a>
         </li> -->
@@ -37,14 +37,41 @@
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#dine">DINE</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Features
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/mall-map">Mall Map</a>
+            <a class="dropdown-item" href="#">Filter Store/Services</a>
+            <a class="dropdown-item" href="#">Rate Store Categories</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            MALL
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#team">Team</a>
+            <a class="dropdown-item" href="#about">About</a>
+            <a class="dropdown-item" href="#contact">Contact</a>
+          </div>
         </li>
         <% if(flag){ %>
         <li class="nav-item">
@@ -59,17 +86,21 @@
 <!-- Masthead-->
 <header class="masthead">
   <div class="container">
-    <div class="masthead-heading text-uppercase "style="font-size: 2.0em;" >Welcome to the Mall Digitally</div>
-    <div class="masthead-heading text-uppercase ">It's nice to see you!</div>
+    <div class="masthead-heading text-uppercase" style="font-size: 2em">
+      Welcome to the Mall Digitally
+    </div>
+    <div class="masthead-heading text-uppercase">It's nice to see you!</div>
     <a
       class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
-      href="#services" style="margin:10px;color:black;"
+      href="#services"
+      style="margin: 10px; color: black"
       >List your store</a
     >
     <a
-    class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-    href="#services" style="margin:10px;color:black;"
-    >Register</a>
+      class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+      href="#services"
+      style="margin: 10px; color: black"
+      >Register</a
+    >
   </div>
 </header>
-

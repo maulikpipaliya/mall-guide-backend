@@ -83,4 +83,8 @@ router.get("/mo-dashboard", async function (req, res) {
   res.render("../views/pages/signin");
 });
 
+router.get("/mall-map", async function (req, res) {
+  res.render("../views/pages/home-mall-map");
+});
+
 module.exports = router;

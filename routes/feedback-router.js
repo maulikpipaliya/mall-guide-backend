@@ -33,9 +33,9 @@ router.post("/", async function (req, res) {
 //   const { id } = req.params;
 
 //   try {
-//     console.log(res.body);
-//     res.body.updated_at = new Date();
-//     const response = await feedbackModel.findByIdAndUpdate(id, res.body);
+//     console.log(req.body);
+//     req.body.updated_at = new Date();
+//     const response = await feedbackModel.findByIdAndUpdate(id, req.body);
 //     // if (!response) throw new Error("[ERROR] : --Failed to update");
 //     const updated = { ...response._doc, ...req.body };
 //     console.log("[INFO] : Success. Updated feedback");
@@ -53,10 +53,10 @@ router.post("/", async function (req, res) {
 //   const { id } = req.params;
 
 //   try {
-//     // console.log(res.body);
-//     res.body.updated_at = new Date();
-//     res.body.is_deleted = true;
-//     const deleted = await feedbackModel.findByIdAndUpdate(id, res.body);
+//     // console.log(req.body);
+//     req.body.updated_at = new Date();
+//     req.body.is_deleted = true;
+//     const deleted = await feedbackModel.findByIdAndUpdate(id, req.body);
 //     if (!deleted) throw new Error("[ERROR] : Failed to delete feedback");
 
 //     res.status(200).json(deleted);
