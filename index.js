@@ -86,7 +86,6 @@ app.use("/registration", registration_visitor_router);
 app.use("/rate", rating_visitior_router);
 app.use("/sendstorerequest", store_request_router);
 app.use("/storerequest", store_request_mall_owner_router);
-// app.use("/eventregistration", event_registration_router);
 app.use("/contactus", contactus_router);
 app.use("/aboutus", aboutus_router);
 // app.use("/landing", landing_router);

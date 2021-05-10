@@ -5,74 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Registration</title>
+    <link rel="stylesheet" href="css/offer-page.css" />
+
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="css/event-registration.css" />
   </head>
 
   <body>
     <div class="form_wrapper">
       <div class="form_container">
         <div class="title_container">
-          <h2>Event Registration</h2>
+          <h2>Offer</h2>
         </div>
         <div class="row clearfix">
           <div class="">
             <form method="post" action="/events">
+              <div>
+                <label>Select Store</label>
+                <select name="storeid" class="formbox">
+                  <option value="Visitor">Visitor</option>
+                </select>
+              </div>
               <div class="input_field">
-                <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                <span><i aria-hidden="true" class="fa fa-user"></i></span>
                 <input
                   type="text"
-                  name="event_name"
-                  placeholder="Event Name"
+                  name="offername"
+                  placeholder="Offer Name"
                   required
                 />
               </div>
               <div class="input_field">
-                <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                <input
-                  type="text"
-                  name="event_desc"
-                  placeholder="Event Description"
-                  required
-                />
+                <span><i aria-hidden="true" class="fa fa-edit"></i></span>
+                <input type="text" name="offerby" placeholder="Offer by" />
               </div>
-              <div class="input_field">
-                <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                <input
-                  type="text"
-                  name="organizer"
-                  placeholder="Organizer Name"
-                  required
-                />
-              </div>
-              <div class="input_field">
-                <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                <input
-                  type="text"
-                  name="event_location"
-                  placeholder="Location"
-                  required
-                />
-              </div>
-              <div class="row clearfix">                
                 <div class="col_half">
                   <div class="input_field">
-                    <!-- <span><i aria-hidden="true" class="fa fa-user"></i></span> -->
                     <p>Start Date</p>
                     <input
                       type="date"
                       name="start_date"
                       placeholder="Start Date"
+                      required
                     />
                   </div>
                 </div>
                 <div class="col_half">
                   <div class="input_field">
-                    <!-- <span><i aria-hidden="true" class="fa fa-user"></i></span> -->
                     <p>End Date</p>
                     <input
                       type="date"
@@ -94,10 +76,6 @@
         </div>
       </div>
     </div>
-    <p class="credit">
-      <!-- Developed by
-      <a href="http://www.designtheway.com" target="_blank">Design the way</a> -->
-    </p>
   </body>
 
   <script>

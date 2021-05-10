@@ -8,7 +8,8 @@ var offerModel = require("../models/offer-model");
 router.get("/", async function (req, res) {
   console.log("[INFO] : Getting all offers");
   const all_stores = await offerModel.find({ is_deleted: false });
-  res.json(all_stores);
+  // res.json(all_stores);
+  res.render("../views/pages/offer-page");
 });
 
 //create a new offer
