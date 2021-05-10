@@ -136,8 +136,8 @@
                   ><img src="/non-visitor/photos/user1.png" alt=""
                 /></span>
                 <span class="desc">
-                  <span class="name"
-                    ><%= user.name %>
+                  <span class="name">
+                    <% if(user) { user.name } %> </span>
                     <span class="badge badge-success">new</span></span
                   >
                   <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -251,7 +251,7 @@
           data-toggle="dropdown"
         >
           <img src="/non-visitor/photos/user-avatar.png" alt="" />
-          <%= user.name %>
+          <% if(user) { user.name }%>
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
