@@ -22,21 +22,31 @@ router.get("/so-store-request", async function (req, res) {
 
 router.get("/so-add-category", async function (req, res) {
   const all_categories = await categoryModel.find({ is_deleted: false });
+  
   res.render("../views/pages/store-owner/add-category", {
     all_categories: all_categories,
   });
 });
 
-router.get("/so-edit-category", async function (req, res) {
-  res.render("../views/pages/store-owner/edit-category");
+router.get("/so-edit-category/:id", async function (req, res) {
+  const { id } = req.params;
+  const response = await categoryModel.findByIdAndUpdate(id, req.body);
+  const all_categories = await categoryModel.find({ is_deleted: false });
+  res.render("../views/pages/store-owner/edit-category",{all_category:response,all_categories:all_categories});
 });
 
 
-
 router.get("/so-show-category", async function (req, res) {
-  const all_offers = await offerModel.find({ is_deleted: false });
+  const all_category = await categoryModel.find({ is_deleted: false });
+  for(let i =0;i<all_category.length;i++)
+  {
+    const tmp = await categoryModel.findOne({ _id:all_category[i].parent_category_id });
+    if(tmp)
+      all_category[i].parent_category_id=tmp.name;
+
+  }
   res.render("../views/pages/store-owner/show-category", {
-    all_offers: all_offers,
+    all_category: all_category,
   });
 });
 
