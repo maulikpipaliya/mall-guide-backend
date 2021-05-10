@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var categoryModel = require("../../models/category-model");
+var storeModel = require("../../models/store-model");
+var ratingModel = require("../../models/rate-model");
 var offerModel = require("../../models/offer-model");
 var storeModel = require("../../models/store-model");
 
@@ -17,8 +19,27 @@ router.get("/so-dashboard", async function (req, res) {
   });
 });
 
-router.get("/so-store-request", async function (req, res) {
-  res.render("../views/pages/store-owner/store-request");
+router.get("/store-request", async function (req, res) {
+  res.render("../views/pages/store-request");
+});
+
+router.get("/so-login", async function (req, res) {
+  res.render("../views/pages/store-owner/so-login");
+});
+
+router.get("/so-show-rating", async function (req, res) {
+  const all_rating = await ratingModel.find();
+  for(let i =0;i<all_rating.length;i++)
+  {
+    const tmp = await categoryModel.findOne({ _id:all_rating[i].category_id });
+    if(tmp)
+      all_rating[i].category_id=tmp.name;
+      const tmp1 = await storeModel.findOne({ _id:all_rating[i].store_id });
+    if(tmp1)
+      all_rating[i].store_id=tmp1.store_name;
+
+  }
+  res.render("../views/pages/store-owner/show-rating",{all_rating: all_rating });
 });
 
 router.get("/so-add-category", async function (req, res) {
