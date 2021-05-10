@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head'); %>
+
+  <body>
+    <section>
+      <%- include('./partials/sidebar'); %>
+      <div class="main-content">
+        <%- include('./partials/header'); %>
+        <div class="page-heading">
+          <h3>Add Offer</h3>
+        </div>
+        <section>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div class=" form">
+                                <form class="cmxform form-horizontal adminex-form" id="commentForm" method="get" action="">
+                                    <div class="form-group ">
+                                        <label for="oname" class="control-label col-lg-2">Offer Name</label>
+                                        <div class="col-lg-10">
+                                            <input class=" form-control" id="oname" name="offername" minlength="2" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ooffer" class="control-label col-lg-2">Offer by</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="ooffer" type="text" name="offerby" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="curl" class="control-label col-lg-2">Start Date</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="sdate" type="date" name="stratdate" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ccomment" class="control-label col-lg-2">End Date</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="edate" type="date" name="enddate" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ccomment" class="control-label col-lg-2">Enter URL</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="addurl" type="text" name="enterurl" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <button class="btn btn-default" type="button">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+                <footer>2021 &copy; Mall Guide by ThemeBucket</footer>
+            </div>
+        </section>
+
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/modernizr.min.js"></script>
+        <script src="js/jquery.nicescroll.js"></script>
+    
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script src="js/validation-init.js"></script>
+    
+        <!--common scripts for all pages-->
+        <script src="js/scripts.js"></script>
+      </body>
+    </html>
+    
