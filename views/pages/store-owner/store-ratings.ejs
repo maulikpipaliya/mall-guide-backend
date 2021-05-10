@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta
+      name="keywords"
+      content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="ThemeBucket" />
+    <link rel="shortcut icon" href="#" type="image/png" />
+
+    <title>Mall Guide</title>
+
+    <!--icheck-->
+    <link
+      href="/non-visitor/js/iCheck/skins/minimal/minimal.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/non-visitor/js/iCheck/skins/square/square.css"
+      rel="stylesheet"
+    />
+    <link href="/non-visitor/js/iCheck/skins/square/red.css" rel="stylesheet" />
+    <link
+      href="/non-visitor/js/iCheck/skins/square/blue.css"
+      rel="stylesheet"
+    />
+
+    <!--dashboard calendar-->
+    <link href="/non-visitor/css/clndr.css" rel="stylesheet" />
+
+    <!--common-->
+    <link href="/non-visitor/css/style.css" rel="stylesheet" />
+    <link href="/non-visitor/css/style-responsive.css" rel="stylesheet" />
+    <link href="/non-visitor/css/so-store-ratings.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/non-visitor/js/html5shiv.js"></script>
+      <script src="/non-visitor/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <section>
+      <%- include('./partials/sidebar'); %>
+      <div class="main-content">
+        <%- include('./partials/header'); %>
+        <div class="page-heading">
+          <h3>Store Ratings</h3>
+        </div>
+
+        <form>
+          <fieldset>
+            <span class="star-cb-group">
+              <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
+              <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
+              <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
+              <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
+              <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
+              <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+            </span>
+          </fieldset>
+        </form>
+
+        <footer>2021 &copy; Mall Guide by ThemeBucket</footer>
+      </div>
+    </section>
+    <script src="/non-visitor/js/so-store-ratings.js"></script>
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script src="js/validation-init.js"></script>
+
+    <!--common scripts for all pages-->
+    <script src="js/scripts.js"></script>
+
+  </body>
+</html>

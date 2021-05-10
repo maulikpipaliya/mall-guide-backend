@@ -28,7 +28,9 @@ router.post("/", async function (req, res) {
     const inserted = await newStore.save();
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
-    res.status(200).json(inserted);
+    // res.status(200).json(inserted);
+    res.redirect("/mo/manage-stores");
+
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -36,13 +38,16 @@ router.post("/", async function (req, res) {
   }
 });
 
+
+
 //update a store
-router.put("/:name", async (req, res) => {
+router.post("/edit/:name", async (req, res) => {
   const { name } = req.params;
 
   try {
     const response = await storeModel.findOne({ route_name: name });
     req.body.updated_at = new Date();
+    req.body.route_name = req.body.store_name.split(" ").join("-");
     const response1 = await storeModel.findByIdAndUpdate(
       response._id,
       req.body
@@ -50,7 +55,8 @@ router.put("/:name", async (req, res) => {
     if (!response1) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response1._doc, ...req.body };
     console.log("[INFO] : Success. Updated Data");
-    res.status(200).json(updated);
+    res.redirect("/mo/manage-stores");
+    // res.render("");
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -59,7 +65,7 @@ router.put("/:name", async (req, res) => {
 });
 
 //delete a store
-router.delete("/:name", async (req, res) => {
+router.get("/delete-store/:name", async (req, res) => {
   const { name } = req.params;
 
   try {
@@ -69,8 +75,8 @@ router.delete("/:name", async (req, res) => {
     // console.log(response);
     const deleted = await storeModel.findByIdAndUpdate(response.id, response);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
-
-    res.status(200).json(deleted);
+    res.redirect("/mo/manage-stores");
+    // res.status(200).json(deleted);
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -178,5 +184,8 @@ router.get("/:block/:floor", async (req, res) => {
     });
   }
 });
+
+
+
 
 module.exports = router;

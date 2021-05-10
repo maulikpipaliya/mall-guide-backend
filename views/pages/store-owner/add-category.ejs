@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head'); %>
+
+  <body>
+    <section>
+      <%- include('./partials/sidebar'); %>
+      <div class="main-content">
+        <%- include('./partials/header'); %>
+        <div class="page-heading">
+          <h3>Add Category</h3>
+          <!-- <ul class="breadcrumb">
+            <li>
+                <a href="#">Form</a>
+            </li>
+            <li class="active"> Form Validation </li>
+        </ul> -->
+        </div>
+        <form action="/categories" method="post">
+        <section class="panel">
+          <div class="panel-body">
+            <form role="form" class="form-horizontal adminex-form">
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Category Name</label>
+                <div class="col-lg-10">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder=""
+                    id="f-name"
+                    class="form-control"
+                  />
+                  <!-- <p class="help-block">Successfully done</p> -->
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Select Category</label>
+                <div class="col-lg-10">
+                  <!-- <input type="text" placeholder="" id="l-name" class="form-control">
+                          <p class="help-block">Aha you gave a wrong info</p> -->
+                  <select name="parent_category_id" style="width: 100%; height: 35px">
+                    <% if(all_categories.length!=0) { for(var i=0; i < all_categories.length; i++) {
+                      %>
+                    <option value="<%= all_categories[i]._id %>"><%= all_categories[i].name %></option>
+                    <% } } %>
+                  </select>
+                </div>
+              </div>
+              <!-- <div class="form-group has-warning">
+                      <label class="col-lg-2 control-label">Email</label>
+                      <div class="col-lg-10">
+                          <input type="email" placeholder="" id="email2" class="form-control">
+                          <p class="help-block">Something went wrong</p>
+                      </div>
+                  </div> -->
+
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                  <button class="btn btn-primary" type="submit">Add</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+
+        </section>
+        </form>
+        <footer>2021 &copy; Mall Guide by ThemeBucket</footer>
+        <!--footer section end-->
+      </div>
+      <!-- main content end-->
+    </section>
+
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script src="js/validation-init.js"></script>
+
+    <!--common scripts for all pages-->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
