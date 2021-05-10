@@ -69,7 +69,7 @@ $(function() {
                 borderWidth: 1,
                 borderColor: "#eeeeee"
             },
-            colors: ["#65CEA7", "#424F63"],
+            colors: ["#65cea7", "#424F63"],
             tooltip: true,
             tooltipOpts: {
                 defaultTheme: false

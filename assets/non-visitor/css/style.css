@@ -1,6 +1,6 @@
 /*------------------------------------------
 Template Name: AdminEx Dashboard
-Author: ThemeBucket
+Author: Team 15 @DAIICT - Web Development
 -------------------------------------------*/
 
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
@@ -25,7 +25,7 @@ input, select, textarea {
 }
 
 a {
-    color: #65CEA7;
+    color: #65cea7;
 }
 
 a:focus, a:active, a:hover {
@@ -53,7 +53,7 @@ hr {
 -------------------------------*/
 
 .login-body {
-    background: #fed136;
+    background: #65cea7;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -391,7 +391,7 @@ hr {
 }
 
 .custom-nav .sub-menu-list > li.active > a {
-    color: #65CEA7;
+    color: #65cea7;
     background-color: #2A323F;
 }
 
@@ -446,7 +446,7 @@ h5.left-nav-title {
 
 .left-side-collapsed .custom-nav li a span {
     position: absolute;
-    background: #65CEA7;
+    background: #65cea7;
     padding: 10px;
     left: 52px;
     top: 0;
@@ -466,7 +466,7 @@ h5.left-nav-title {
     position: absolute;
     pointer-events: none;
     border-color: rgba(0, 0, 0, 0);
-    border-right-color: #65CEA7;
+    border-right-color: #65cea7;
     border-width: 6px;
     margin-top: -6px;
 }
@@ -498,7 +498,7 @@ h5.left-nav-title {
 }
 
 .left-side-collapsed .custom-nav li.nav-hover.active a span {
-    background: #65CEA7;
+    background: #65cea7;
     color: #fff;
 }
 
@@ -569,9 +569,9 @@ h5.left-nav-title {
 }
 
 .toggle-btn:hover {
-    background: #65CEA7;
+    background: #65cea7;
     color: #fff;
-    border-right-color: #65CEA7;
+    border-right-color: #65cea7;
 }
 
 .searchform input {
@@ -806,7 +806,7 @@ h5.left-nav-title {
 }
 
 .normal-list li a:hover {
-    color: #65CEA7 !important;
+    color: #65cea7 !important;
     text-decoration: none;
 }
 
@@ -928,7 +928,7 @@ h5.left-nav-title {
 }
 
 .page-heading .breadcrumb li.active {
-    color: #65CEA7;
+    color: #65cea7;
 }
 
 .wrapper {
@@ -1018,7 +1018,7 @@ h5.left-nav-title {
 .horizontal-menu-page .dropdown-menu > li > a:focus,
 .horizontal-menu-page .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
     background-color: #2A323F;
-    color: #65CEA7;
+    color: #65cea7;
     text-decoration: none;
 }
 
@@ -1865,7 +1865,7 @@ ul.user-states li {
 
 .rating span.star:hover:before, .rating span.star:hover:before, .rating span.star:hover ~ span.star:before, .rating span.star:hover ~ span.star:before {
     content: "\f005";
-    color: #65CEA7;
+    color: #65cea7;
 }
 
 /*----------------------------
@@ -1908,7 +1908,7 @@ ul.user-states li {
 }
 
 .custom-tab.turquoise-tab {
-    background: #65CEA7 !important;
+    background: #65cea7 !important;
 }
 
 .custom-tab.blue-tab {
@@ -1930,7 +1930,7 @@ ul.user-states li {
 
 .custom-tab.turquoise-tab li a:hover,
 .custom-tab.turquoise-tab li.active a {
-    color: #65CEA7 !important;
+    color: #65cea7 !important;
 }
 
 .custom-tab.blue-tab li a:hover,
@@ -1947,7 +1947,7 @@ ul.user-states li {
 .custom-tab li.active a {
     border-radius: 0 !important;
     background: #fff !important;
-    color: #65CEA7 !important;
+    color: #65cea7 !important;
 }
 
 .panel-heading .nav > li > a, .panel-heading .nav > li.active > a, .panel-heading .nav > li.active > a:hover, .panel-heading .nav > li.active > a:focus {
@@ -1960,7 +1960,7 @@ ul.user-states li {
 }
 
 .panel-heading .nav > li.active > a, .panel-heading .nav > li > a:hover {
-    color: #65CEA7;
+    color: #65cea7;
     background: #fff;
 }
 
@@ -2034,7 +2034,7 @@ ul.user-states li {
 }
 
 .fc-state-active, .fc-state-active .fc-button-inner, .fc-state-active, .fc-button-today .fc-button-inner, .fc-state-hover, .fc-state-hover .fc-button-inner {
-    background: #65CEA7 !important;
+    background: #65cea7 !important;
     color: #fff !important;
 }
 
@@ -2048,7 +2048,7 @@ ul.user-states li {
     height: 45px;
     line-height: 45px;
     text-align: center;
-    background: #65CEA7 !important;
+    background: #65cea7 !important;
     color: #fff;
     text-transform: uppercase;
 }
@@ -2321,7 +2321,7 @@ table.display tr.even.gradeX, table.display tr.gradeX, tr.even.gradeU td.sorting
 }
 
 .editable-table table td a:hover {
-    color: #65CEA7;
+    color: #65cea7;
 }
 
 /*--------------------------
@@ -2341,8 +2341,8 @@ table.display tr.even.gradeX, table.display tr.gradeX, tr.even.gradeU td.sorting
 }
 
 .media-filter li a {
-    background: #65CEA7;
-    border-color: #65CEA7;
+    background: #65cea7;
+    border-color: #65cea7;
     color: #fff;
     padding: 5px 10px;
     border-radius: 2px;
@@ -2379,7 +2379,7 @@ table.display tr.even.gradeX, table.display tr.gradeX, tr.even.gradeU td.sorting
 }
 
 .media-gal .item:hover {
-    background: #65CEA7;
+    background: #65cea7;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -2604,7 +2604,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 
 .widget-container .stepy-tab ul li.current-step, .block-tabby ul li.current-step{
     border:none ;
-    background: #65CEA7!important;
+    background: #65cea7!important;
     color: #fff;
 }
 
@@ -2628,7 +2628,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 }
 
 .widget-container .step legend {
-    color: #65CEA7;
+    color: #65cea7;
     font-size: 16px;
     border-bottom:1px dotted #ddd;
     padding-bottom: 10px;
@@ -2687,7 +2687,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 --------------------------*/
 
 .ms-container .ms-selectable li.ms-hover, .ms-container .ms-selection li.ms-hover {
-    background-color: #65CEA7;
+    background-color: #65cea7;
     color: #FFFFFF;
     cursor: pointer;
     text-decoration: none;
@@ -2698,7 +2698,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 }
 
 .ms-container .ms-list.ms-focus {
-    border: 1px solid #65CEA7;
+    border: 1px solid #65cea7;
 }
 
 .ms-selectable .search-input, .ms-selection .search-input {
@@ -2740,8 +2740,8 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 -----------------------------*/
 
 div.tagsinput span.tag {
-    background: #65CEA7 !important;
-    border-color: #65CEA7;
+    background: #65cea7 !important;
+    border-color: #65cea7;
     color: #fff;
     border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -3873,7 +3873,7 @@ ul.activity-list .activity-desk h5 a {
 }
 
 a.btn-compose {
-    background: #65CEA7;
+    background: #65cea7;
     color: #fff;
     width: 100%;
     margin: 10px 0;
@@ -4085,7 +4085,7 @@ ul.labels-info li a:hover, ul.labels-info li a:focus {
 }
 
 .view-mail a, .attachment-mail a:hover {
-    color: #65CEA7;
+    color: #65cea7;
 }
 
 .attachment-mail a{
@@ -4130,7 +4130,7 @@ ul.labels-info li a:hover, ul.labels-info li a:focus {
     color: #424242;
 }
 .blog  h1 a:hover, .blog  h1 a:focus, .auth-row a:hover, .auth-row a:hover {
-    color: #65CEA7;
+    color: #65cea7;
 }
 
 .blog .auth-row {
@@ -4181,7 +4181,7 @@ ul.labels-info li a:hover, ul.labels-info li a:focus {
 }
 
 .btn-search, .btn-search:hover, .btn-search:focus {
-    background: #65CEA7;
+    background: #65cea7;
     color: #fff;
 }
 
@@ -4200,7 +4200,7 @@ ul.labels-info li a:hover, ul.labels-info li a:focus {
 }
 
 .blog-post h5 a:hover, .blog-post h5 a:focus, .blog-post ul li a:hover, .blog-post ul li a:focus {
-    color: #65CEA7;
+    color: #65cea7;
 }
 
 .blog-post p {
@@ -4287,11 +4287,11 @@ blockquote p {
 }
 
 .tag-social ul li a:hover, .blog-cmnt .media-heading a:hover, .blog-tags a:hover {
-    color: #65CEA7;
+    color: #65cea7;
 }
 
 .blog-tags a.btn-share {
-    background: #65CEA7 ;
+    background: #65cea7 ;
     margin-top: -10px;
     padding: 10px ;
     color: #fff;
@@ -4357,7 +4357,7 @@ ol.comment-list {
 }
 
 .bl-status .reply:hover {
-    background: #65CEA7;
+    background: #65cea7;
     color: #fff;
 }
 
@@ -4386,7 +4386,7 @@ ol.comment-list {
 }
 
 .btn-post-cmnt {
-    background:#65CEA7;
+    background:#65cea7;
     color: #fff;
     text-transform: uppercase;
     font-size: 12px;
@@ -4445,7 +4445,7 @@ ol.comment-list {
 }
 
 .directory-list li a:hover, .directory-info-row .social-links li a:hover {
-    background:#65CEA7;
+    background:#65cea7;
     color: #fff;
 }
 
@@ -4656,7 +4656,7 @@ ol.comment-list {
 }
 
 .normal-chat li.in .name {
-    color: #65CEA7 !important;
+    color: #65cea7 !important;
 }
 .normal-chat li.out .name {
     color: #424F63 !important;
@@ -4679,14 +4679,14 @@ ol.comment-list {
 }
 
 .cool-chat li.in .message {
-    background: #65CEA7;
+    background: #65cea7;
     color: #fff;
     border-radius: 5px;
     -webkit-border-radius: 5px;
 }
 
 .cool-chat li.in .message .arrow {
-    border-right: 8px solid #65CEA7;
+    border-right: 8px solid #65cea7;
 }
 .cool-chat li.in .message a.name {
     font-weight: bold;
@@ -4751,7 +4751,7 @@ ol.comment-list {
 }
 
 .widget-info-one h5 {
-    color: #65CEA7;
+    color: #65cea7;
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
@@ -4762,7 +4762,7 @@ ol.comment-list {
 }
 
 .widget-info-one .panel-footer {
-    background: #65CEA7;
+    background: #65cea7;
     border: none;
     color: #fff;
     padding: 0;
@@ -5005,7 +5005,7 @@ ul.iconic-list li a:hover, ul.iconic-list li.active a {
     background: #5AB6DF;
 }
 .states-info .green-bg {
-    background: #65CEA7;
+    background: #65cea7;
 }
 .states-info .yellow-bg {
     background: #EBC85E;

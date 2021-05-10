@@ -2,7 +2,7 @@
 <html lang="en">
   <%- include('./partials/head'); %>
 
-  <body>
+  <body  class="sticky-header">
     <section>
       <%- include('./partials/sidebar'); %>
       <div class="main-content">
@@ -14,7 +14,7 @@
                    <div class="col-sm-12">
                    <section class="panel">
                    <header class="panel-heading">
-                       Editable Table
+                       CATEGORIES
                        <span class="tools pull-right">
                            <a href="javascript:;" class="fa fa-chevron-down"></a>
                            <a href="javascript:;" class="fa fa-times"></a>
@@ -43,6 +43,7 @@
                        </div>
                    </div>
                    <div class="space15"></div>
+                   <div class="row"><div class="col-lg-6"><div id="editable-sample_length" class="dataTables_length"><label><select size="1" name="editable-sample_length" aria-controls="editable-sample" class="form-control xsmall"><option value="5" selected="selected">5</option><option value="15">15</option><option value="20">20</option><option value="-1">All</option></select> records per page</label></div></div><div class="col-lg-6"><div class="dataTables_filter" id="editable-sample_filter"><label>Search: <input type="text" aria-controls="editable-sample" class="form-control medium"></label></div></div></div>
                    <table class="table table-striped table-hover table-bordered" id="editable-sample">
                    <thead>
                    <tr>
@@ -72,22 +73,10 @@
                    </div>
                    </div>
            </div>
-           <footer>2021 &copy; Mall Guide by ThemeBucket</footer>
+           <footer>2021 &copy; Mall Guide by Team 15 @DAIICT - Web Development</footer>
         </form>
         </section>
       </div>
     </section>
-    <script src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-        <script src="js/jquery-migrate-1.2.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/modernizr.min.js"></script>
-        <script src="js/jquery.nicescroll.js"></script>
-    
-        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-        <script src="js/validation-init.js"></script>
-    
-        <!--common scripts for all pages-->
-        <script src="js/scripts.js"></script>
-        </body>
-</html>
+    <%- include('./partials/footer'); %>
+       
