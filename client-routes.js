@@ -49,7 +49,7 @@ router.get("/home", async function (req, res) {
     flag = false;
   res.render("../views/pages/home", {
     all_stores: all_stores,
-    events: all_events,
+    all_events: all_events,
     offers: all_offers,
     flag: flag,
   });
