@@ -8,7 +8,14 @@ router.get("/", async function (req, res) {
   res.redirect("/mo/mo-dashboard");
 });
 
+router.get("/mo-login", async function (req, res) {
+  res.render("../views/pages/mall-owner/mo-login");
+});
+
+
 router.get("/mo-dashboard", async function (req, res) {
+  // if(req.body.username == "admin" && )
+
   res.render("../views/pages/mall-owner/dashboard");
 });
 

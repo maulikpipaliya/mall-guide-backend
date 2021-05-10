@@ -96,6 +96,14 @@ app.use("/mo", require("./routes/mall-owner/mall-owner-routes"));
 
 app.use("/so", require("./routes/store-owner/store-owner-routes"));
 
+
+app.get("/logout", (req, res) => {
+  res.clearCookie("user_sid");
+  res.redirect("/");
+});
+
+
 app.listen(CONFIG.PORT, () =>
   console.log(`[INFO] : App listening at http://localhost:${CONFIG.PORT}`)
 );
+

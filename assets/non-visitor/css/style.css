@@ -842,7 +842,7 @@ h5.left-nav-title {
 
 .sticky-header .logo {
     position: fixed;
-    top: 0;
+    top: -10px;
     left: 0;
     width: 240px;
     z-index: 100;
