@@ -62,8 +62,12 @@
                        <td><%= all_offers[i].offer_by%></td>
                        <td><%= all_offers[i].start_date%></td>
                        <td><%= all_offers[i].end_date%></td>
-                       <td><a class="edit" href="javascript:;">Edit</a></td>
-                       <td><a class="delete" href="javascript:;">Delete</a></td>
+                       <td>
+                         <a class="" href="so-edit-offer/<%= all_offers[i]._id %>" >Edit</a>
+                        </td>
+                       <td>
+                        <a class="" href="so-delete-offer/<%= all_offers[i]._id %>">Delete</a>
+                      </td>
                    </tr>
                    <% } }%>
                    </tbody>

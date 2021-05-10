@@ -42,8 +42,10 @@ router.get("/so-add-offer", async function (req, res) {
   res.render("../views/pages/store-owner/add-offer");
 });
 
-router.get("/so-edit-offer", async function (req, res) {
-  res.render("../views/pages/store-owner/edit-offer");
+router.get("/so-edit-offer/:id", async function (req, res) {
+  const { id } = req.params;
+    const response = await offerModel.findByIdAndUpdate(id, req.body);
+  res.render("../views/pages/store-owner/edit-offer",{all_offers:response});
 });
 
 router.get("/so-show-offer", async function (req, res) {
