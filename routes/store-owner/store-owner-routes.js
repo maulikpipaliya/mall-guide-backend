@@ -16,6 +16,10 @@ router.get("/so-add-category", async function (req, res) {
   res.render("../views/pages/store-owner/add-category",{all_categories:all_categories});
 });
 
+router.get("/so-edit-category", async function (req, res) {
+  res.render("../views/pages/store-owner/edit-category");
+});
+
 router.get("/so-add-offer", async function (req, res) {
   res.render("../views/pages/store-owner/add-offer");
 });
