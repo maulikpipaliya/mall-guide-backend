@@ -27,7 +27,7 @@
                         <a
                           id=""
                           class="btn btn-primary"
-                           href="so-add-offer"
+                           href="so-add-category"
                         >  
                           Add New <i class="fa fa-plus"></i>
                     </a>  
@@ -56,8 +56,12 @@
                    <tr class="">
                        <td><%= all_category[i].name%></td>
                        <td><%= all_category[i].parent_category_id%></td>
-                       <td><a class="edit" href="javascript:;">Edit</a></td>
-                       <td><a class="delete" href="javascript:;">Delete</a></td>
+                       <td>  
+                         <a class="" href="so-edit-category/<%= all_category[i]._id%>" >Edit</a>
+                       </td>
+                      <td>
+                       <a class="" href="/categories/delete-category/<%= all_category[i]._id%>">Delete</a>
+                      </td>
                    </tr>
                    <% } }%>
                    </tbody>

@@ -24,7 +24,7 @@ router.post("/", async function (req, res) {
     if (!inserted) throw new Error("[ERROR] : Failed to insert");
     else console.log("[INFO] : Success. Inserted Data");
     // res.status(200).json(inserted);
-    res.redirect("/home");
+    res.redirect("/so/so-show-category");
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -33,7 +33,7 @@ router.post("/", async function (req, res) {
 });
 
 //update a category
-router.put("/:id", async (req, res) => {
+router.post("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -51,12 +51,12 @@ router.put("/:id", async (req, res) => {
 });
 
 //delete a category
-router.delete("/:id", async (req, res) => {
+router.get("/delete-category/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    res.body.updated_at = new Date();
-    res.body.is_deleted = true;
+    req.body.updated_at = new Date();
+    req.body.is_deleted = true;
     const deleted = await categoryModel.findByIdAndUpdate(id, req.body);
     if (!deleted) throw new Error("[ERROR] : Failed to delete");
 
