@@ -7,7 +7,7 @@ const offerSchema = new Schema({
   },
   offer_by: {
     type: String,
-    required:true,
+    required: true,
   },
   start_date: {
     type: Date,
@@ -15,6 +15,10 @@ const offerSchema = new Schema({
   },
   end_date: {
     type: Date,
+    required: true,
+  },
+  url: {
+    type: String,
     required: true,
   },
   is_deleted: {
