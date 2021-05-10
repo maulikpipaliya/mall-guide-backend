@@ -45,7 +45,8 @@ router.get("/home", async function (req, res) {
   const all_events = await eventModel.find({ is_deleted: false });
   const all_offers = await offerModel.find({ is_deleted: false });
   let flag = true;
-  if (req.session.user && req.cookies.user_sid) flag = false;
+  if (req.session.role && req.session.role == 2 && req.cookies.user_sid)
+    flag = false;
   res.render("../views/pages/home", {
     all_stores: all_stores,
     events: all_events,
@@ -55,8 +56,8 @@ router.get("/home", async function (req, res) {
 });
 
 var sessionChecker = (req, res, next) => {
-  console.log("keshav1111111 + " + req.session.user);
-  if (req.session.user && req.cookies.user_sid) {
+  // console.log("keshav1111111 + " + req.session.user);
+  if (req.session.user && req.session.role == 2 && req.cookies.user_sid) {
     res.redirect("/");
   } else {
     next();
