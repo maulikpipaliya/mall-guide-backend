@@ -20,6 +20,9 @@ router.get("/so-add-offer", async function (req, res) {
   res.render("../views/pages/store-owner/add-offer");
 });
 
+router.get("/so-edit-offer", async function (req, res) {
+  res.render("../views/pages/store-owner/edit-offer");
+});
 
 router.get("/so-show-offer", async function (req, res) {
   const all_offers = await offerModel.find({ is_deleted: false });
