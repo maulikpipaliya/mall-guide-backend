@@ -10,7 +10,7 @@
 section {
   position: relative;
   min-height: 100vh;
-  background-color: #f8dd30;
+  background-color: #65cea7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,7 +109,7 @@ section .container .user .formBx form select{
 
 section .container .user .formBx form input[type='submit'] {
   max-width: 100px;
-  background: #677eff;
+  background: #65cea7;
   color: #fff;
   cursor: pointer;
   font-size: 14px;
