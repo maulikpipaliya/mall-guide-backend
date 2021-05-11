@@ -30,6 +30,7 @@ router.get("/so-show-rating", async function (req, res) {
     if (tmp) all_rating[i].category_id = tmp.name;
     const tmp1 = await storeModel.findOne({ _id: all_rating[i].store_id });
     if (tmp1) all_rating[i].store_id = tmp1.store_name;
+    else all_rating[i].store_id = "Store Name";
   }
   res.render("../views/pages/store-owner/show-rating", {
     all_rating: all_rating,
