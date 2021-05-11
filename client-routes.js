@@ -1,4 +1,5 @@
 var express = require("express");
+const categoryModel = require("./models/category-model");
 const eventModel = require("./models/event-model");
 const locationModel = require("./models/location-model");
 const offerModel = require("./models/offer-model");
@@ -107,6 +108,15 @@ router.post("/store-request", async function (req, res) {
   newStore.save();
   newStoreOwner.save();
   res.redirect("/");
+});
+
+router.get("/store-ratings", async function (req, res) {
+  const all_stores = await storeModel.find({ is_deleted: false });
+  const all_category = await categoryModel.find({ is_deleted: false });
+  res.render("../views/pages/store-owner/store-ratings", {
+    all_stores: all_stores,
+    all_category: all_category,
+  });
 });
 
 module.exports = router;

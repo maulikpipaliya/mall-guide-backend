@@ -8,73 +8,76 @@
       <div class="main-content">
         <%- include('./partials/header'); %>
         <section>
-            
-            <div class="wrapper">
-                <div class="row">
-                   <div class="col-sm-12">
-                   <section class="panel">
-                   <header class="panel-heading">
-                       Rating Table
-                       <span class="tools pull-right">
-                           <a href="javascript:;" class="fa fa-chevron-down"></a>
-                           <a href="javascript:;" class="fa fa-times"></a>
-                        </span>
-                   </header>
-                   <div class="panel-body">
-                   <div class="adv-table editable-table ">
-                   <div class="clearfix">
-                       <div class="btn-group pull-right">
-                           <!-- <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
+          <div class="wrapper">
+            <div class="row">
+              <div class="col-sm-12">
+                <section class="panel">
+                  <header class="panel-heading">
+                    Rating Table
+                    <span class="tools pull-right">
+                      <a href="javascript:;" class="fa fa-chevron-down"></a>
+                      <a href="javascript:;" class="fa fa-times"></a>
+                    </span>
+                  </header>
+                  <div class="panel-body">
+                    <div class="adv-table editable-table">
+                      <div class="clearfix">
+                        <div class="btn-group pull-right">
+                          <!-- <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
                            </button> -->
-                           <ul class="dropdown-menu pull-right">
-                               <li><a href="#">Print</a></li>
-                               <li><a href="#">Save as PDF</a></li>
-                               <li><a href="#">Export to Excel</a></li>
-                           </ul>
-                       </div>
-                   </div>
-                   <div class="space15"></div>
-                   <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                   <thead>
-                   <tr>
-                       <th>Store Name</th>
-                       <th>Category Name</th>
-                       <th>Rating</th>
-                   </tr>
-                   </thead>
-                   <tbody>
-                        <% if(all_rating.length!=0) { for(var i=0; i <
-                            all_rating.length; i++) { %>
-                   <tr class="">
-                       <td><%= all_rating[i].store_id%></td>
-                       <td><%= all_rating[i].category_id%></td>
-                       <td><%= all_rating[i].rating%></td>
-                   </tr>
-                   <% } }%>
-                   </tbody>
-                   </table>
-                   </div>
-                   </div>
-                   </section>
-                   </div>
-                   </div>
-           </div>
-           <footer>2021 &copy; Mall Guide by Team 15 @DAIICT - Web Development</footer>
-        
+                          <ul class="dropdown-menu pull-right">
+                            <li><a href="#">Print</a></li>
+                            <li><a href="#">Save as PDF</a></li>
+                            <li><a href="#">Export to Excel</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="space15"></div>
+                      <table
+                        class="table table-striped table-hover table-bordered"
+                        id="editable-sample"
+                      >
+                        <thead>
+                          <tr>
+                            <th>Store Name</th>
+                            <th>Category Name</th>
+                            <th>Rating</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% if(all_rating.length!=0) { for(var i=0; i <
+                          all_rating.length; i++) { %>
+                          <tr class="">
+                            <td><%= all_rating[i].store_id%></td>
+                            <td><%= all_rating[i].category_id%></td>
+                            <td><%= all_rating[i].rating%></td>
+                          </tr>
+                          <% } }%>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+          <footer>
+            2021 &copy; Mall Guide by Team 15 @DAIICT - Web Development
+          </footer>
         </section>
       </div>
     </section>
     <script src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-        <script src="js/jquery-migrate-1.2.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/modernizr.min.js"></script>
-        <script src="js/jquery.nicescroll.js"></script>
-    
-        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-        <script src="js/validation-init.js"></script>
-    
-        <!--common scripts for all pages-->
-        <script src="js/scripts.js"></script>
-        </body>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script src="js/validation-init.js"></script>
+
+    <!--common scripts for all pages-->
+    <script src="js/scripts.js"></script>
+  </body>
 </html>
