@@ -3,11 +3,9 @@ const { Schema, model } = require("mongoose");
 const store2CategorySchema = new Schema({
   store_id: {
     type: String,
-    required: true,
   },
   category_id: {
     type: String,
-    required: true,
   },
   is_deleted: {
     type: Boolean,

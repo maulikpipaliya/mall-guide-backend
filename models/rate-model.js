@@ -3,15 +3,12 @@ const { Schema, model } = require("mongoose");
 const rateSchema = new Schema({
   store_id: {
     type: String,
-    required: true,
   },
   category_id: {
     type: String,
-    required: true,
   },
   rating: {
     type: Number,
-    required: true,
   },
   // is_deleted: {
   //   type: Boolean,

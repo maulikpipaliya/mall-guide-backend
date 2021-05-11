@@ -3,30 +3,24 @@ const { Schema, model } = require("mongoose");
 const eventSchema = new Schema({
   event_name: {
     type: String,
-    required: true,
   },
   event_desc: {
     type: String,
   },
   organizer: {
     type: String,
-    required: true,
   },
   event_location: {
     type: String,
-    required: true,
   },
   start_date: {
     type: Date,
-    required: true,
   },
   end_date: {
     type: Date,
-    required: true,
   },
   url: {
     type: String,
-    required: true,
   },
   is_deleted: {
     type: Boolean,

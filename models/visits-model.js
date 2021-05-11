@@ -3,7 +3,6 @@ const { Schema, model } = require("mongoose");
 const visitSchema = new Schema({
   visitor_id: {
     type: String,
-    required: true,
   },
   visit_datetime: {
     type: Date,

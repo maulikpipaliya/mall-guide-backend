@@ -3,14 +3,12 @@ const { Schema, model } = require("mongoose");
 const mallOwnerSchema = new Schema({
   name: {
     type: String,
-    required: true,
   },
   email: {
     type: String,
   },
   contact: {
     type: Number,
-    required: true,
   },
   is_deleted: {
     type: Boolean,

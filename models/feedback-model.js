@@ -3,11 +3,9 @@ const { Schema, model } = require("mongoose");
 const feedbackSchema = new Schema({
   text: {
     type: String,
-    required: true,
   },
   givenby: {
     type: String,
-    required: true,
   },
   is_deleted: {
     type: Boolean,

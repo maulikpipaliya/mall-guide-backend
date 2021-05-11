@@ -3,13 +3,12 @@ const { Schema, model } = require("mongoose");
 const serviceSchema = new Schema({
   service_name: {
     type: String,
-    required: true,
   },
   location_id: {
-    type: String
+    type: String,
   },
   description: {
-    type:String
+    type: String,
   },
   is_deleted: {
     type: Boolean,

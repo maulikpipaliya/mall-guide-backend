@@ -3,22 +3,18 @@ const { Schema, model } = require("mongoose");
 const storeOwnerSchema = new Schema({
   username: {
     type: String,
-    required: true,
   },
   password: {
     type: String,
-    required: true,
   },
   name: {
     type: String,
-    required: true,
   },
   email: {
     type: String,
   },
   contact: {
     type: Number,
-    required: true,
   },
   address: {
     type: String,

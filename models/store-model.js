@@ -3,7 +3,6 @@ const { Schema, model } = require("mongoose");
 const storeSchema = new Schema({
   store_name: {
     type: String,
-    required: true,
   },
   email: {
     type: String,
@@ -12,24 +11,23 @@ const storeSchema = new Schema({
     type: String,
   },
   location_id: {
-    type: String
+    type: String,
   },
   route_name: {
     type: String,
-    required: true,
   },
   url: {
     type: String,
     requrired: true,
   },
   url1: {
-    type: String
+    type: String,
   },
   url2: {
-    type: String
+    type: String,
   },
   url3: {
-    type: String
+    type: String,
   },
   is_deleted: {
     type: Boolean,

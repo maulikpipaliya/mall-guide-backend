@@ -3,11 +3,9 @@ const { Schema, model } = require("mongoose");
 const locationSchema = new Schema({
   floor_number: {
     type: Number,
-    required: true,
   },
   block_name: {
     type: String,
-    required: true,
   },
   location_desc: {
     type: String,
