@@ -47,30 +47,25 @@
             >DINE</a
           >
         </li>
-        <li class="nav-item dropdown">
+
+        <li class="nav-item">
           <a
-            class="nav-link dropdown-toggle font-weight-bold"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
+            class="nav-link js-scroll-trigger font-weight-bold"
+            href="/mall-map"
+            target="_blank"
+            >Mall Map</a
           >
-            Features
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a
-              class="dropdown-item font-weight-bold"
-              href="/mall-map"
-              target="_blank"
-              >Mall Map</a
-            >
-            <a class="dropdown-item font-weight-bold" href="/store-ratings"
-              >Rate Store Categories</a
-            >
-          </div>
         </li>
+        <% if(!flag){ %>
+        <li class="nav-item">
+          <a
+            class="nav-link js-scroll-trigger font-weight-bold"
+            href="/store-ratings"
+            target="_blank"
+            >Rate Store Categories</a
+          >
+        </li>
+        <% } %>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle font-weight-bold"
