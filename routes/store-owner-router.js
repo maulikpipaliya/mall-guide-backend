@@ -32,7 +32,7 @@ router.put("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    console.log(req.body);
+    // console.log(req.body);
     req.body.updated_at = new Date();
     const response = await storeOwnerModel.findByIdAndUpdate(id, req.body);
     // if (!response) throw new Error("[ERROR] : --Failed to update");

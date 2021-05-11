@@ -64,7 +64,7 @@ router.put("/:id/deny", async (req, res) => {
     req.body.updated_at = new Date();
     req.body.is_approved = false;
     req.body.is_deleted = true;
-    console.log(req.body);
+    // console.log(req.body);
     const response1 = await storeRequestModel.findByIdAndUpdate(id, req.body);
     if (!response1) throw new Error("[ERROR] : Failed to update");
     const updated = { ...response1._doc, ...req.body };
